@@ -1,0 +1,21 @@
+
+@font-face {font-family: "iconfont";
+ src: url('../font/iconfont.ttf') format('truetype'); /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:25px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-qq:before { content: "\e6b2"; }
+
+.icon-weibo:before { content: "\e65a"; }
+
+.icon-GitHub:before { content: "\ea0a"; }
+
+.icon-weixin:before { content: "\f262"; }
+
