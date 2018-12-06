@@ -8,6 +8,7 @@ Vue.use(VueRouter)
 //引入css文件
 // import 'element-ui/lib/theme-chalk/index.css';
 import './static/css/common.css'
+import './static/css/iconfont.css'
 // import $ from '././static/vendor/jquery-vendor.js'
 // import $ from 'jquery'
 // import 'jquery-ui'
