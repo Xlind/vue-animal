@@ -3,9 +3,6 @@ import Vue from 'vue'
 //引入路由
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
-//引入bootstrap-vue
-import BootstrapVue from 'bootstrap-vue'
-Vue.use(BootstrapVue)
 // //引入element-ui
 // import Element from 'element-ui'
 //引入css文件
@@ -13,12 +10,7 @@ Vue.use(BootstrapVue)
 import './static/css/common.css'
 import './static/css/iconfont.css'
 import './static/js/components.js'
-// import 'bootstrap/dist/css/bootstrap.css'
-// import 'bootstrap-vue/dist/bootstrap-vue.css'
 
-// import $ from '././static/vendor/jquery-vendor.js'
-// import $ from 'jquery'
-// import 'jquery-ui'
 // Vue.use(Element)
 // Vue.prototype.$ELEMENT = { size: 'x-small', zIndex: 2000 };
 //axios引入
