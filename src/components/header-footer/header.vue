@@ -10,7 +10,7 @@
             data-toggle="collapse"
             data-target="#example-navbar-collapse"
           >
-            <span class="sr-only">切换导航</span>
+            <span class="sr-only"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -35,9 +35,6 @@
                 </li>
                 <li>
                   <a href="#">动物新闻</a>
-                </li>
-                <li>
-                  <a href="#">保护组织</a>
                 </li>
               </ul>
             </li>
