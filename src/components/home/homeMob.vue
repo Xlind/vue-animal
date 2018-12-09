@@ -1,7 +1,8 @@
 <!-- 手机端 -->
 <template>
   <div>
-      我是手机端页面
+      <headerM-vue></headerM-vue>
+      <footerM-vue></footerM-vue>
   </div>
 </template>
 

@@ -1,7 +1,7 @@
 <!-- 手机端头部 -->
 <template>
   <div>
-      手机端头部
+      <h1>手机端头部</h1>
   </div>
 </template>
 

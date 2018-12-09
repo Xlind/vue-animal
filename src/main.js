@@ -18,33 +18,55 @@ import Axios from 'axios'
 //挂载原型
 Vue.prototype.$ajax = Axios
 //默认配置
-// Axios.defaults.baseURL = 'http://127.0.0.1:8004/api/'
+Axios.defaults.baseURL = 'http://127.0.0.1:8004/api/'
 
 //引入自己的组件
-import App from './app.vue'   
-import headerVue from './components/header-footer/header.vue'    //pc端头部组件
-import footerVue from './components/header-footer/footer.vue'    //pc端尾部组件
-import footerMVue from './components/header-footer/footerM.vue'   //mobile端尾部组件
-import Home from './components/home/home.vue'                     //pc首页
-import HomeMob from './components/home/homeMob.vue'               //mobile首页
+const App = r => require.ensure([], () => r(require('./app.vue')), 'app');
+const Home = r => require.ensure([], () => r(require('./components/home/home.vue')), 'Home');//pc首页
+const HomeMob = r => require.ensure([], () => r(require('./components/home/homeMob.vue')), 'HomeMob');//mobile首页
+const headerVue = r => require.ensure([], () => r(require('./components/header-footer/header.vue')), 'headerVue');//pc端头部组件
+const footerVue = r => require.ensure([], () => r(require('./components/header-footer/footer.vue')), 'footerVue');//pc端尾部组件
+const headerMVue  = r => require.ensure([], () => r(require('./components/header-footer/headerM.vue')), 'headerMVue');//mobile端头部组件
+const footerMVue  = r => require.ensure([], () => r(require('./components/header-footer/footerM.vue')), 'footerMVue');//mobile端尾部组件
+
+//home
+const bannerVue = r => require.ensure([], () => r(require('./components/home/pc/banner.vue')), 'bannerVue');//搜索
+const anlunboVue = r => require.ensure([], () => r(require('./components/home/pc/anlunbo.vue')), 'anlunboVue');//新增动物轮播
 
 //注册全局组件
-Vue.component('headerVue',headerVue)
-Vue.component('footerVue',footerVue)
+Vue.component('headerVue', headerVue)
+Vue.component('footerVue', footerVue)
+Vue.component('headerMVue', headerMVue)
+Vue.component('footerMVue', footerMVue)
+Vue.component('bannerVue',bannerVue)
+Vue.component('anlunboVue',anlunboVue)
 
 
-
-let router =new VueRouter({
-    routes:[
-        {path :'',redirect : '/home'},
-        {name : 'home',path : '/home',component : Home},
-        {name : 'homeMob',path : '/homeMob',component : HomeMob},
-        {name : 'footerM',path : '/footerM',component : footerMVue}
+let router = new VueRouter({
+    routes: [{
+            path: '/',
+            redirect: { name: 'home' },   
+        },
+        {
+            name: 'home',
+            path: '/home',
+            component: Home
+        },
+        {
+            name: 'homeMob',
+            path: '/homeMob',
+            component: HomeMob
+        },
+        {
+            name: 'footerM',
+            path: '/footerM',
+            component: footerMVue
+        }
     ]
 })
 
-new Vue ({
-    el:'#app',
+new Vue({
+    el: '#app',
     router,
-    render:c=>c(App)
+    render: c => c(App)
 })

@@ -1,7 +1,15 @@
 /**
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+menu,
+nav,
+section {
     display: block;
 }
 
@@ -12,12 +20,15 @@ body {
     /* background-color: rgba(233, 236, 236, 0.959); */
 }
 
-blockquote, q {
+blockquote,
+q {
     quotes: none;
 }
 
-blockquote:before, blockquote:after,
-q:before, q:after {
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
     content: none;
 }
 
@@ -27,15 +38,30 @@ table {
 }
 
 /* custom */
-a:link{
+a:link {
     color: #FFD04B;
     text-decoration: none;
 
     /* -webkit-backface-visibility: hidden; */
 }
-a:visited {color:#FFD04B;background-color:#3d444c;}  /* 已访问链接 */
-a:hover {color:white; text-decoration: none;}  /* 鼠标移动到链接上 */
-a:active {color:white;}  /* 鼠标点击时 */
+
+a:visited {
+    color: #FFD04B;
+    background-color: #3d444c;
+}
+
+/* 已访问链接 */
+a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+/* 鼠标移动到链接上 */
+a:active {
+    color: white;
+}
+
+/* 鼠标点击时 */
 li {
     list-style: none;
 }
@@ -62,7 +88,8 @@ li {
     -webkit-border-radius: 6px;
 }
 
-html, body {
+html,
+body {
     width: 100%;
 }
 
@@ -73,10 +100,25 @@ body {
 
 .dropdown-item {
     color: #FFD04B;
-  }
+}
+
 input:focus {
     outline: none;
     border-color: #cfdc00;
     box-shadow: 0 0 5px rgba(207, 220, 0, 0.4);
     border-radius: 5px;
+}
+
+ul {
+    padding-inline-start: 0;
+}
+
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus {
+    outline: none;
+    box-shadow: none
 }

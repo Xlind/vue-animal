@@ -5,39 +5,7 @@
     <header-vue></header-vue>
 
     <!-- banner和搜索框 -->
-    <div class="jumbotron">
-      <div class="container textstyle">
-        <h2>
-          <b>让我们一起分享奇妙的动物世界</b>
-        </h2>
-        <p>
-          <b>Let us share the wonderful animal world</b>
-        </p>
-        <br>
-        <h3>
-          <b>我们的愿景</b>
-        </h3>
-        <h4>
-          <b>一个人与动物和谐相处的世界</b>
-        </h4>
-        <h3>
-          <b>我们的使命</b>
-        </h3>
-        <h4>
-          <b>引领人们走进动物世界</b>
-        </h4>
-        <h4>
-          <b>呼吁人们友好对待动物</b>
-        </h4>
-      </div>
-      <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4 seach">
-          <input type="text" class="form-seach" placeholder="搜索你想知道的">
-          <a class="glyphicon glyphicon-search"></a>
-        </div>
-      </div>
-    </div>
+    <banner-vue></banner-vue>
 
     <!-- 热门Hot top -->
     <div id="hot">
@@ -45,15 +13,15 @@
         <div class="page-header">
           <a class="btn btn-link">
             <h3>
-              <b>热门推送 Hot Tags</b>
+              <b>热门推送 Hot Tags Push</b>
             </h3>
           </a>
         </div>
         <div class="row card">
-          <div class="col-md-4">
+          <div class="col-md-4 col-lg-4">
             <img src="../../static/img/test.jpg" width="350px">
           </div>
-          <div class="col-md-8">
+          <div class="col-md-8 col-lg-8">
             <p>我又再次见到了那飘散着的一片片落叶。见到落叶并不稀奇，但是这是在春天，四月的春天！
               <br>春天见得最多的应是傲然怒放的鲜花和春风得意的杨柳，而不是这像蝴蝶一般在空中翩翩起舞，萦绕的落叶。
               <br>我看着地上的落叶，有三种不同的颜色：翡翠般绿的，金子般黄的，火一般红的，真可以说是色彩繁多了。
@@ -70,81 +38,43 @@
       </div>
     </div>
 
-    <!-- 专题轮播 -->
-    <div class="container" id="an-special">
-      <div class="page-header">
-        <a class="btn btn-link">
-          <h3>
-            <b>动物专题 Animal special</b>
-          </h3>
-        </a>
-      </div>
-      <div id="single" class="carousel slide" data-ride="carousel" data-shift="1">
-        <div class="carousel-inner">
-          <ul class="row item active">
-            <li class="col-md-3 one">
-              <img
-                src="http://placehold.it/200/666dc0/ffffff&text=1"
-                srcset="http://placehold.it/200/666dc0/ffffff&text=1 1x"
-                class="img-responsive"
-              >
-            </li>
-            <li class="col-md-3 two">
-              <img
-                src="http://placehold.it/200/666dc0/ffffff&text=2"
-                srcset="http://placehold.it/200/666dc0/ffffff&text=2 1x"
-                class="img-responsive"
-              >
-            </li>
-            <li class="col-md-3 three">
-              <img
-                src="http://placehold.it/200/666dc0/ffffff&text=3"
-                srcset="http://placehold.it/200/666dc0/ffffff&text=3 1x"
-                class="img-responsive"
-              >
-            </li>
-            <li class="col-md-3 four">
-              <img
-                src="http://placehold.it/200/666dc0/ffffff&text=4"
-                srcset="http://placehold.it/200/666dc0/ffffff&text=4 1x"
-                class="img-responsive"
-              >
-            </li>
-          </ul>
-          <ul class="row item">
-            <li class="col-md-3 five">
-              <img
-                src="http://placehold.it/200/666dc0/ffffff&text=5"
-                srcset="http://placehold.it/200/666dc0/ffffff&text=5 1x"
-                class="img-responsive"
-              >
-            </li>
-            <li class="col-md-3 six">
-              <img
-                src="http://placehold.it/200/666dc0/ffffff&text=6"
-                srcset="http://placehold.it/200/666dc0/ffffff&text=6 1x"
-                class="img-responsive"
-              >
-            </li>
-            <li class="col-md-3 seven">
-              <img
-                src="http://placehold.it/200/666dc0/ffffff&text=7"
-                srcset="http://placehold.it/200/666dc0/ffffff&text=7 1x"
-                class="img-responsive"
-              >
-            </li>
-            <li class="col-md-3 eight">
-              <img
-                src="http://placehold.it/200/666dc0/ffffff&text=8"
-                srcset="http://placehold.it/200/666dc0/ffffff&text=8 1x"
-                class="img-responsive"
-              >
-            </li>
-          </ul>
-        </div>
+    <!-- 新增动物轮播 -->
+    <anlunbo-vue></anlunbo-vue>
 
-        <a class="carousel-control left" href="#single" data-slide="prev">Previous</a>
-        <a class="carousel-control right" href="#single" data-slide="next">Next</a>
+    <!-- 动物专题-->
+    <div id="pgrahy">
+      <div class="container">
+        <div class="page-header">
+          <a class="btn btn-link">
+            <h3>
+              <b>动物专题 Animal Theme</b>
+            </h3>
+          </a>
+        </div>
+        <div class="row">
+          <div class="col-md-4 colmn grid-item" v-for="(theme, index) in themes" :key="index">
+            <figure>
+              <div class="box-overlay">
+                <a href>
+                  <button type="button" class="btn btn-site">{{ theme.title }}</button>
+                </a>
+              </div>
+              <span class="label">图标</span>
+              <img
+                v-bind:src="theme.url"
+                alt="Singapore Government Proposes Ban on Sale of Elephant Ivory"
+              >
+            </figure>
+            <figcaption>
+              <h5>
+                <a class="page-link" href>
+                  <span class="ellipsis-multiline">{{ theme.msg }}</span>
+                </a>
+              </h5>
+              <span class="date">{{ theme.date }}</span>
+            </figcaption>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -159,60 +89,38 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      themes: [
+        {
+          title: "狮子专题",
+          url:
+            "http://img5.imgtn.bdimg.com/it/u=2168427908,4072089613&fm=200&gp=0.jpg",
+          msg: "Singapore Government Proposes Ban on Sale of Elephant Ivory",
+          date: "November 29, 2018"
+        },
+        {
+          title: "老虎专题",
+          url: "animal-lb.png",
+          msg: "Singapore Government Proposes Ban on Sale of Elephant Ivory",
+          date: "November 29, 2018"
+        },
+        {
+          title: "大象专题",
+          url: "animal-lb.png",
+          msg: "Singapore Government Proposes Ban on Sale of Elephant Ivory",
+          date: "November 29, 2018"
+        }
+      ]
+    };
   }
 };
 </script>
 <style>
-/* banner和搜索框 */
-.jumbotron {
-  margin-top: 50px;
-  margin-bottom: 0;
-  background: url("../../static/img/animal-banner.jpg") no-repeat
-    rgba(0, 0, 0, 0.7);
-  background-size: cover;
-  background-color: rgba(0, 0, 0, 0.08);
-  width: 100%;
-}
-.textstyle {
-  margin-top: 60px;
-}
-.jumbotron h2,
-.jumbotron h3,
-.jumbotron h4,
-.jumbotron p {
-  text-shadow: 3px 3px 3px #333;
-  line-height: 20px;
-  color: white;
-}
-.jumbotron .seach {
-  margin-top: 80px;
-  opacity: 0.9;
-}
-.jumbotron a {
-  position: relative;
-  left: -35px;
-  display: inline-block;
-}
-.jumbotron a:hover {
-  color: #333;
-}
-.jumbotron .form-seach {
-  width: 90%;
-  height: 40px;
-  padding: 0 10px;
-  border: 1px solid rgba(255, 255, 255, 0.95);
-  border-radius: 2px;
-  background-color: rgba(255, 255, 255, 0.95);
-  color: #444;
-  box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.07), 0 1px 3px 0 rgba(0, 0, 0, 0.02),
-    0 0 0 1px rgba(0, 0, 0, 0.1);
-  box-sizing: border-box;
-}
 /* 热门Hot top  */
 #hot {
   margin: 0;
-  background-color: white;
+  background-color: #f4fddf;
+  padding-bottom: 40px;
 }
 #hot .card {
   margin-top: 20px;
@@ -224,164 +132,94 @@ export default {
   letter-spacing: 1px;
 }
 
-/* 轮播专题 */
-#an-special {
-  margin-bottom: 20px;
+/* 动物专题 */
+#pgrahy {
+  background-color: #f4fddf;
+  padding-bottom: 35px;
 }
-
-.page-header {
-  border-bottom: none;
-  margin: 20px 0 20px;
+figure img {
+  width: 100%;
+  height: 200px;
 }
-.page-header,
-.glyphicon-search {
-  color: #5a5a5a;
+.box-overlay {
+  opacity: 0;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+  /* -webkit-backface-visibility: hidden; */
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
-/*title动画*/
-.btn {
-  display: inline-block;
-  outline: none;
-  border: none;
-}
-.btn-link,
-.btn-link:hover {
-  position: relative;
-  color: #5a5a5a;
-  padding-bottom: 2px;
-  padding-left: 0;
-  padding-right: 0;
-  text-decoration: none;
+.btn-site {
+  font-size: 18px;
   letter-spacing: 1px;
+  line-height: 40px;
+  transition: all 0.5s ease 0s;
+  -webkit-transition: all 0.5s ease 0s;
+  -ms-transition: all 0.5s ease 0s;
+  padding: 0 25px;
 }
-.btn-link:before,
-.btn-link:after {
-  content: "";
+.btn-site {
+  line-height: 37px;
+}
+.grid-item:hover .box-overlay {
+  background: rgba(0, 0, 0, 0.8);
+  opacity: 0.9;
+  z-index: 2;
+}
+.box-overlay button {
+  height: 40px;
   position: absolute;
-  background: -webkit-radial-gradient(#5a5a5a, white); /* Safari 5.1 - 6.0 */
-  height: 3px;
-  width: 0%;
-  bottom: 0;
-  left: 0;
+  top: 50%;
+  left: 50%;
+  color: #333;
+  transform: translate(-50%, -50%);
 }
-a.btn-link:after {
-  animation-duration: 1s;
-  animation-name: slideunderline;
-  -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
+.colmn figure {
+  position: relative;
 }
-a.btn-link.loaded:before,
-a.btn-link.loaded:after {
-  animation-duration: 0s;
+.colmn figure .label {
   position: absolute;
-  width: 100%;
-  bottom: 0;
-  left: 0;
-  background: -webkit-radial-gradient(#5a5a5a, white); /* Safari 5.1 - 6.0 */
-  height: 3px;
-  color: #5a5a5a;
+  display: inline-block;
+  top: 0px;
+  left: 0px;
+  background: #5a5a5a;
+  line-height: 1.1em;
+  padding-top: 0.44em;
+  font-size: 20px;
+  font-weight: 100;
+  letter-spacing: 1px;
+  border-radius: 0;
 }
-a.btn-link:hover:after {
-  animation-duration: 0.6s;
-  animation-name: resetunderline;
-  -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
+figcaption {
+  padding: 8px 25px 1px 25px;
+  background-color: #fff;
+  vertical-align: top;
+  font-size: 20px;
+  position: relative;
+  height: 5em;
 }
-/* 定义title动画 */
-@keyframes slideunderline {
-  to {
-    background: -webkit-radial-gradient(#5a5a5a, white); /* Safari 5.1 - 6.0 */
-    width: 100%;
-  }
-}
-@keyframes resetunderline {
-  0% {
-    background: -webkit-radial-gradient(#5a5a5a, white); /* Safari 5.1 - 6.0 */
-    width: 0%;
-  }
-  100% {
-    background: -webkit-radial-gradient(#5a5a5a, white); /* Safari 5.1 - 6.0 */
-    width: 100%;
-  }
-}
-/* 轮播*/
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
-*,
-*:focus,
-*:active,
-*:focus:active,
-*:before,
-*:before:focus,
-*:before:active,
-*:before:focus:active,
-*:after,
-*:after:focus,
-*:after:active,
-*:after:focus:active {
-  outline: none;
-}
-.carousel {
-  margin: 30px 0;
-  width: 100%;
-  /* width: calc(100% - ($button-spacing * 2)); */
-}
-.carousel .carousel-inner > .item.row {
-  margin: 0;
-}
-.carousel .carousel-control {
-  background: none;
-  color: transparent;
+figcaption h5 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: #333;
+  height: 2.6em;
   overflow: hidden;
-  text-shadow: none;
-  -webkit-transition: all 5s ease-in-out;
-  transition: all 5s ease-in-out;
-  width: 30px;
 }
-.carousel .carousel-control:before {
-  color: #444;
-  font-family: "Glyphicons Halflings";
+.ellipsis-multiline {
+  color: #333;
+  font-size: 15px;
+}
+span.date {
   position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
-  width: 30px;
-}
-.carousel .carousel-control:after {
-  border-radius: 50%;
-  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
-  content: "";
-  height: 60%;
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
-  -webkit-transition: all 2s ease-in-out;
-  transition: all 2s ease-in-out;
-  width: 100%;
-}
-.carousel .carousel-control:hover:after {
-  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.7);
-}
-.carousel .carousel-control.left {
-  left: -30px;
-}
-.carousel .carousel-control.left:before {
-  content: "\e079";
-}
-.carousel .carousel-control.left:after {
-  right: -100%;
-}
-.carousel .carousel-control.right {
-  right: -30px;
-}
-.carousel .carousel-control.right:before {
-  content: "\e080";
-}
-.carousel .carousel-control.right:after {
-  left: -100%;
+  padding-bottom: 0px;
+  top: auto;
+  bottom: 10px;
+  left: 25px;
+  color: #333;
 }
 
 /* 留坑 */
