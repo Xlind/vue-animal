@@ -58,9 +58,9 @@ export default {
        method:"post",
        data:this.regist
      }).then(res=>{
-       if(code==200){
+       if(res.data.code==200){
          alert("注册成功")
-       }else{
+       }else if (res.data.code == 400) {
          alert("注册失败")
        }
      })
