@@ -50,14 +50,14 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li>
-              <a href="#">
+              <router-link :to="{name:'register'}">
                 <span class="glyphicon glyphicon-user"></span> 注册
-              </a>
+              </router-link>
             </li>
             <li>
-              <a href="#">
+              <router-link :to="{name:'login'}">
                 <span class="glyphicon glyphicon-log-in"></span> 登录
-              </a>
+              </router-link>
             </li>
           </ul>
         </div>

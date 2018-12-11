@@ -1,6 +1,28 @@
 const express = require('express')
-const app = new express
-// const lunb = require('./api/lunbo')
+const app = express()
+const bodyParser = require('body-parser')
+const session = require('express-session')
+
+//引入连接mongoodb数据库的表
+const Rescue = require('./api/rescue.js')
+const Volunteer = require('./api/volunteer.js')
+const Account = require('./api/account.js')
+
+//配置body-parser中间件，用于解析post表单请求体
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({
+    extended: true
+}))
+
+
+//配置session
+app.use(session({
+    // 配置加密字符串，它会在原有加密基础之上和这个字符串拼起来去加密
+    // 目的是为了增加安全性，防止客户端恶意伪造
+    secret: 'keyboard',
+    resave: false,
+    saveUninitialized: false
+}))
 
 // 所有链接增加改header信息，来解决访问跨域的问题。
 app.use('*', function (req, res, next) {
@@ -10,18 +32,75 @@ app.use('*', function (req, res, next) {
     next()
 });
 
-app.use('/', express.static('./dist/'))
 app.use('/api/', express.static('./api/'))
+app.use('/', express.static('./dist/'))
 
-app.get('/', function (req, res) {
+app.get('/', (req, res) => {
     res.sendfile('./dist/index.html')
 })
-// app.get('/lunbo', function (req, res) {
-//     res.sendfile('./api/lunbo.json')
-// })
 
+//提交注册表单
+app.post('/register', (req, res) => {
+    let body = req.body
+    console.log('rgister params: ' + JSON.stringify(req.body))
+    Account.findOne({
+        email: body.email
+    }, (err, date) => {
+        if (err) {
+            return res.status(500)
+        }
+        if (date) {
+            return res.status(200).json({
+                code: 400,
+                reason: 1011
+            })
+        }
+        Account(body).save((err, account) => {
+            if (err) {
+                console.log(err.message)
+                return res.status(500).json({
+                    code: 400,
+                    reason: 1012
+                })
+            }
+            req.session.account = account
+            res.status(200).json({
+                code: 200
+            })
+        })
+    })
 
+})
+
+app.post('/login', (req, res) => {
+    let body = req.body
+    console.log('login params: ' + JSON.stringify(req.body))
+    Account.findOne({
+        email: body.email,
+        password: body.password
+    }, (err, account) => {
+        if (err) {
+            return res.status(500).json({
+                code: 400,
+                reason: 1001
+            })
+        }
+        if (!account) {
+            return res.status(200).json({
+                code: 400,
+                reason: 1001
+            })
+        }
+        req.session.account = account
+        res.status(200).json({
+            code: 200
+        })
+    })
+})
+app.get('/logut', (req, res) => {
+    req.session.account = null
+})
 
 app.listen(8004, function () {
-    console.log('animal-app server is running...')
+    console.log('animal-api server is running...')
 })
