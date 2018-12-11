@@ -22,7 +22,7 @@
             class="form-control"
             id="password"
             v-model="formObj.password"
-            placeholder="请输入姓"
+            placeholder="请输入密码"
           >
         </div>
       </div>

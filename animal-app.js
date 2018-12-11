@@ -40,7 +40,7 @@ app.get('/', (req, res) => {
 })
 
 //提交注册表单
-app.post('/register', (req, res) => {
+app.post('/api/register', (req, res) => {
     let body = req.body
     console.log('rgister params: ' + JSON.stringify(req.body))
     Account.findOne({
@@ -72,7 +72,7 @@ app.post('/register', (req, res) => {
 
 })
 
-app.post('/login', (req, res) => {
+app.post('/api/login', (req, res) => {
     let body = req.body
     console.log('login params: ' + JSON.stringify(req.body))
     Account.findOne({
