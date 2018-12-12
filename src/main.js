@@ -21,6 +21,13 @@ Vue.prototype.$ajax = Axios
 // Axios.defaults.baseURL = 'http://192.168.100.18:8004/api/'
 Axios.defaults.baseURL = 'http://111.230.232.189:8004/api/'
 
+//过滤器
+import Moment from 'moment'
+Vue.filter('covedate' , value =>{
+    return Moment(value).format('YYYY-MM-DD')
+})
+
+
 //引入自己的组件
 const App = r => require.ensure([], () => r(require('./app.vue')), 'app');
 const Home = r => require.ensure([], () => r(require('./components/home/home.vue')), 'Home');//pc首页
