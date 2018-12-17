@@ -22,10 +22,10 @@ Vue.prototype.$ajax = Axios
 Axios.defaults.baseURL = 'http://111.230.232.189:8004/api/'
 
 //过滤器
-import Moment from 'moment'
-Vue.filter('covedate' , value =>{
-    return Moment(value).format('YYYY-MM-DD')
-})
+// import Moment from 'moment'
+// Vue.filter('covedate' , value =>{
+//     return Moment(value).format('YYYY-MM-DD')
+// })
 
 
 //引入自己的组件
@@ -37,21 +37,14 @@ const footerVue = r => require.ensure([], () => r(require('./components/header-f
 const headerMVue  = r => require.ensure([], () => r(require('./components/header-footer/headerM.vue')), 'headerMVue');//mobile端头部组件
 const footerMVue  = r => require.ensure([], () => r(require('./components/header-footer/footerM.vue')), 'footerMVue');//mobile端尾部组件
 
-
-//home
-const bannerVue = r => require.ensure([], () => r(require('./components/home/pc/banner.vue')), 'bannerVue');//搜索
-const anlunboVue = r => require.ensure([], () => r(require('./components/home/pc/anlunbo.vue')), 'anlunboVue');//新增动物轮播
-const loginVue = r => require.ensure([], () => r(require('./components/home/login.vue')), 'login');//登录
-const registerVue = r => require.ensure([], () => r(require('./components/home/register.vue')), 'register');//登录
-
 //注册全局组件
 Vue.component('headerVue', headerVue)
 Vue.component('footerVue', footerVue)
 Vue.component('headerMVue', headerMVue)
 Vue.component('footerMVue', footerMVue)
-Vue.component('bannerVue',bannerVue)
-Vue.component('anlunboVue',anlunboVue)
 
+const registerVue = r => require.ensure([], () => r(require('./components/header-footer/register.vue')), 'register');//注册
+const loginVue = r => require.ensure([], () => r(require('./components/header-footer/login.vue')), 'login');//登录
 
 let router = new VueRouter({
     routes: [{

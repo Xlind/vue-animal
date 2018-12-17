@@ -66,10 +66,16 @@
 </template>
 
 <script>
+// const registerVue = r => require.ensure([], () => r(require('./register.vue')), 'register');//注册
+// const loginVue = r => require.ensure([], () => r(require('./login.vue')), 'login');//登录
 export default {
   data() {
     return {};
   },
+  // components:{
+  //   registerVue,
+  //   loginVue
+  // },
   methods: {}
 };
 </script>
