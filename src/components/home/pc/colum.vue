@@ -23,7 +23,7 @@
             <div class="page-header">
               <a class="btn btn-link">
                 <h3>
-                  <b>动物知识Animal Knowledge</b>
+                  <b>动物知识 Animal Knowledge</b>
                 </h3>
               </a>
             </div>

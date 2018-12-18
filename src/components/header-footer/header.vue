@@ -28,7 +28,7 @@
               </a>
               <ul class="dropdown-menu">
                 <li>
-                  <a href="#">野生动物</a>
+                  <router-link :to="{name:'animalScience'}">野生动物</router-link>
                 </li>
                 <li>
                   <a href="#">动物常识</a>

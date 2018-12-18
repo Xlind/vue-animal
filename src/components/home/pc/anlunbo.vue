@@ -161,6 +161,7 @@
 </template>
 
 <script>
+import './anlunbo.js'
 export default {
   data() {
     return {};

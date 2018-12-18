@@ -63,6 +63,7 @@ export default {
       }).then(res => {
         if (res.data.code == 200) {
           alert("登陆成功");
+          
         } else if (res.data.code == 400) {
           alert("登陆失败");
         }

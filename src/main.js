@@ -9,7 +9,6 @@ Vue.use(VueRouter)
 // import 'element-ui/lib/theme-chalk/index.css';
 import './static/css/common.css'
 import './static/css/iconfont.css'
-import './static/js/components.js'
 
 // Vue.use(Element)
 // Vue.prototype.$ELEMENT = { size: 'x-small', zIndex: 2000 };
@@ -18,8 +17,8 @@ import Axios from 'axios'
 //挂载原型
 Vue.prototype.$ajax = Axios
 //默认配置
-// Axios.defaults.baseURL = 'http://192.168.100.18:8004/api/'
-Axios.defaults.baseURL = 'http://111.230.232.189:8004/api/'
+Axios.defaults.baseURL = 'http://192.168.100.18:8004/api/'
+// Axios.defaults.baseURL = 'http://111.230.232.189:8004/api/'
 
 //过滤器
 // import Moment from 'moment'
@@ -30,12 +29,12 @@ Axios.defaults.baseURL = 'http://111.230.232.189:8004/api/'
 
 //引入自己的组件
 const App = r => require.ensure([], () => r(require('./app.vue')), 'app');
-const Home = r => require.ensure([], () => r(require('./components/home/home.vue')), 'Home');//pc首页
-const HomeMob = r => require.ensure([], () => r(require('./components/home/homeMob.vue')), 'HomeMob');//mobile首页
-const headerVue = r => require.ensure([], () => r(require('./components/header-footer/header.vue')), 'headerVue');//pc端头部组件
-const footerVue = r => require.ensure([], () => r(require('./components/header-footer/footer.vue')), 'footerVue');//pc端尾部组件
-const headerMVue  = r => require.ensure([], () => r(require('./components/header-footer/headerM.vue')), 'headerMVue');//mobile端头部组件
-const footerMVue  = r => require.ensure([], () => r(require('./components/header-footer/footerM.vue')), 'footerMVue');//mobile端尾部组件
+const Home = r => require.ensure([], () => r(require('./components/home/home.vue')), 'Home'); //pc首页
+const HomeMob = r => require.ensure([], () => r(require('./components/home/homeMob.vue')), 'HomeMob'); //mobile首页
+const headerVue = r => require.ensure([], () => r(require('./components/header-footer/header.vue')), 'headerVue'); //pc端头部组件
+const footerVue = r => require.ensure([], () => r(require('./components/header-footer/footer.vue')), 'footerVue'); //pc端尾部组件
+const headerMVue = r => require.ensure([], () => r(require('./components/header-footer/headerM.vue')), 'headerMVue'); //mobile端头部组件
+const footerMVue = r => require.ensure([], () => r(require('./components/header-footer/footerM.vue')), 'footerMVue'); //mobile端尾部组件
 
 //注册全局组件
 Vue.component('headerVue', headerVue)
@@ -43,13 +42,16 @@ Vue.component('footerVue', footerVue)
 Vue.component('headerMVue', headerMVue)
 Vue.component('footerMVue', footerMVue)
 
-const registerVue = r => require.ensure([], () => r(require('./components/header-footer/register.vue')), 'register');//注册
-const loginVue = r => require.ensure([], () => r(require('./components/header-footer/login.vue')), 'login');//登录
+const registerVue = r => require.ensure([], () => r(require('./components/header-footer/register.vue')), 'register'); //注册
+const loginVue = r => require.ensure([], () => r(require('./components/header-footer/login.vue')), 'login'); //登录
+const animalScienceVue = r => require.ensure([], () => r(require('./components/home/pc/science/animalScience.vue')), 'animalScience'); //科普
 
 let router = new VueRouter({
     routes: [{
             path: '/',
-            redirect: { name: 'home' },   
+            redirect: {
+                name: 'home'
+            },
         },
         {
             name: 'home',
@@ -57,19 +59,19 @@ let router = new VueRouter({
             component: Home
         },
         {
-            name: 'login',
-            path: '/login',
-            component: loginVue
-        },
-        {
             name: 'homeMob',
             path: '/homeMob',
             component: HomeMob
         },
         {
-            name: 'footerM',
-            path: '/footerM',
-            component: footerMVue
+            name: 'animalScience',
+            path: '/home/animalScience',
+            component: animalScienceVue
+        },
+        {
+            name: 'login',
+            path: '/login',
+            component: loginVue
         },
         {
             name: 'register',

@@ -17,8 +17,7 @@ app.use(bodyParser.urlencoded({
 
 //配置session
 app.use(session({
-    // 配置加密字符串，它会在原有加密基础之上和这个字符串拼起来去加密
-    // 目的是为了增加安全性，防止客户端恶意伪造
+    // 配置加密字符串，在原有加密基础之上和这个字符串拼起来去加密
     secret: 'keyboard',
     resave: false,
     saveUninitialized: false
@@ -31,7 +30,7 @@ app.use('*', function (req, res, next) {
     res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
     next()
 });
-
+//公开资源
 app.use('/api/', express.static('./api/'))
 app.use('/', express.static('./dist/'))
 
@@ -71,7 +70,7 @@ app.post('/api/register', (req, res) => {
     })
 
 })
-
+//登录
 app.post('/api/login', (req, res) => {
     let body = req.body
     console.log('login params: ' + JSON.stringify(req.body))
@@ -97,6 +96,7 @@ app.post('/api/login', (req, res) => {
         })
     })
 })
+//退出
 app.get('/logut', (req, res) => {
     req.session.account = null
 })
