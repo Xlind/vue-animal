@@ -5,29 +5,34 @@
     <animalsciencebg-vue></animalsciencebg-vue>
     <div class="container" id="science">
       <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-3">
           <div id="menu">
-            <ul>
-              <li v-for="category in categorys" :key="category.id">
-                <a href="javascript:;" @click="category.id">{{category.title}}</a>
+            <ul class="nav">
+              <li v-for="category in categories" :key="category.id" class="active">
+                <a href="javascript:;" @click="tab(category.id)">{{category.title}}</a>
               </li>
             </ul>
           </div>
         </div>
-        <div class="col-md-10">
+        <div class="col-md-9">
           <div class="science-list">
             <ul>
-              <li v-for="img in imgs" :key="img.id" class="clearfix">
+              <li
+                v-for="img in tabIndex==0? imgs: categories[tabIndex].list"
+                :key="img.id"
+                class="clearfix"
+              >
                 <div class="image-wrap">
                   <router-link :to="{name:'scidence.detail',params:{id:img.id}}">
-                    <img :src="img.img_url">
+                    <img :src="img.imgUrl">
                   </router-link>
                 </div>
                 <div class="text-wrap">
                   <h3>
-                    <a href>{{img.title}}</a>
+                    <a href>{{img.name}}</a>
+                    <span>{{img.enName}}</span>
                   </h3>
-                  <p v-text="img.content"></p>
+                  <p v-text="img.desc"></p>
                 </div>
               </li>
             </ul>
@@ -48,25 +53,32 @@ const animalsciencebgVue = r =>
 export default {
   data() {
     return {
-      categorys: [], //分类
+      categories: [], //分类
       imgs: [], //图片数据
-      num: 1
+      tabIndex: 1
     };
   },
   created() {
     this.$ajax
       .get("science.json")
       .then(res => {
-        this.categorys = res.data.categorys;
-        this.imgs = res.data.msg;
+        this.categories = res.data.categories;
+        for (var i = 0; i < this.categories.length; i++) {
+          var category = this.categories[i];
+          if (category.list != undefined) {
+            for (var j = 0; j < category.list.length; j++) {
+              this.imgs.unshift(category.list[j]);
+            }
+          }
+        }
       })
       .catch(err => {
         console.log(err);
       });
   },
-  method: {
+  methods: {
     tab(index) {
-      this.num = index;
+      this.tabIndex = index;
     }
   },
   components: {
@@ -76,12 +88,15 @@ export default {
 </script>
 
 <style scoped>
+div {
+  background-color: #eaf6f3;
+}
 #science {
   margin-top: 30px;
 }
 #menu {
   width: 160px;
-  background-color: #5a5a5a;
+  /* background-color: #3d444c; */
   border: 1px solid rgb(253, 253, 253);
 }
 
@@ -93,7 +108,9 @@ export default {
 }
 
 #menu ul li {
-  background-color: #5a5a5a;
+  background-color: #3d444c;
+  padding-top: 5px;
+  padding-bottom: 5px;
   height: 50px;
   line-height: 50px;
   /*行距*/
@@ -105,25 +122,9 @@ export default {
 #menu a {
   display: block;
   font-size: 20px;
-  color: #fff;
+  /* color: #fff; */
   text-decoration: none;
   /*隐藏超廉价默认下划线*/
-}
-
-#menu a:hover {
-  color: white;
-  font-size: 25px;
-}
-
-#menu ul li ul {
-  display: none;
-  /*默认隐藏*/
-  top: 0px;
-  width: 130px;
-  /* border: 1px solid #ccc; */
-  border-bottom: none;
-  position: absolute;
-  left: 100px;
 }
 
 #menu ul li:hover ul {
@@ -133,6 +134,11 @@ export default {
 #menu ul li:hover ul li a {
   display: block;
 }
+.nav > li > a {
+  padding: 0;
+}
+
+/* 右边盒子 */
 .science-list .image-wrap {
   float: left;
   position: relative;
@@ -181,5 +187,33 @@ export default {
   color: #656769;
   line-height: 24px;
   margin-top: 15px;
+}
+/* start clearfix */
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  line-height: 0;
+  clear: both;
+  visibility: hidden; /*元素仍占据其本来的空间*/
+}
+/* 这是对非IE6/7的处理，IE6/7并不支持生成元素(不支持伪类:before :after )*/
+.clearfix {
+  display: inline-block;
+}
+/*  
+ 这是对 Mac 上的IE浏览器进行的 */
+* html .clearfix {
+  height: 1%;
+}
+/*  
+ 这是对 win 上的IE6浏览器进行的处理 */
+.clearfix {
+  display: block;
+}
+/* end clearfix */
+.col-md-9 {
+  position: relative;
+  left: -5em;
 }
 </style>
