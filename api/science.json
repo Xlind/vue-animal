@@ -2,11 +2,13 @@
   "categories": [
     {
       "id": 0,
-      "title": "全部动物"
+      "title": "全部动物",
+      "enTitle": "Animals"
     },
     {
       "id": 1,
       "title": "哺乳动物",
+      "enTitle": "Mammal",
       "list": [
         {
           "id": 1,
@@ -223,6 +225,7 @@
     {
       "id": 2,
       "title": "鸟类",
+      "enTitle": "Birds",
       "list": [
         {
           "id": 31,
@@ -544,6 +547,7 @@
     {
       "id": 3,
       "title": "鱼类",
+      "enTitle": "Fish",
       "list": [
         {
           "id": 76,
@@ -865,6 +869,7 @@
     {
       "id": 4,
       "title": "两栖动物",
+      "enTitle": "Amphibians",
       "list": [
         {
           "id": 121,
@@ -1186,6 +1191,7 @@
     {
       "id": 5,
       "title": "爬行动物",
+      "enTitle": "Reptile",
       "list": [
         {
           "id": 166,
@@ -1507,6 +1513,7 @@
     {
       "id": 6,
       "title": "无脊椎动物",
+      "enTitle": "Invertebrates",
       "list": [
         {
           "id": 211,

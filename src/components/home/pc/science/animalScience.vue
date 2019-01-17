@@ -9,7 +9,9 @@
           <div id="menu">
             <ul class="nav">
               <li v-for="category in categories" :key="category.id" class="active">
-                <a href="javascript:;" @click="tab(category.id)">{{category.title}}</a>
+                <a href="javascript:;" @click="tab(category.id)">
+                  {{category.title}}</a>
+                  <!-- <span>{{category.enTitle}}</span> -->
               </li>
             </ul>
           </div>
@@ -69,6 +71,9 @@ export default {
             for (var j = 0; j < category.list.length; j++) {
               this.imgs.unshift(category.list[j]);
             }
+            this.imgs.sort((a,b)=>{
+              return a-b;
+            })
           }
         }
       })
@@ -96,7 +101,6 @@ div {
 }
 #menu {
   width: 160px;
-  /* background-color: #3d444c; */
   border: 1px solid rgb(253, 253, 253);
 }
 
@@ -110,19 +114,13 @@ div {
 #menu ul li {
   background-color: #3d444c;
   padding-top: 5px;
-  padding-bottom: 5px;
-  height: 50px;
   line-height: 50px;
   /*行距*/
   text-align: center;
-  /* border-bottom: 2px solid rgb(255, 255, 255); */
-  position: relative;
 }
-
 #menu a {
   display: block;
   font-size: 20px;
-  /* color: #fff; */
   text-decoration: none;
   /*隐藏超廉价默认下划线*/
 }
@@ -142,10 +140,11 @@ div {
 .science-list .image-wrap {
   float: left;
   position: relative;
+  padding-bottom: 15px;
 }
 .science-list li .image-wrap a {
-  width: 226px;
-  height: 157px;
+  /* width: 226px;
+  height: auto; */
   position: relative;
   display: block;
 }
@@ -169,18 +168,22 @@ div {
 }
 .science-list li .text-wrap {
   float: left;
-  width: 540px;
-  margin: 10px 0 0 26px;
+  width: 500px;
+  margin: 0 0 0 26px;
   display: inline;
 }
 .science-list li .text-wrap h3 a {
-  font-size: 18px;
+  font-size: 25px;
   color: #3f3f43;
-  font-weight: 500;
+  font-weight: 800;
   line-height: 22px;
 }
+.science-list li .text-wrap h3 span{
+  font-size: 18px;
+  font-weight: 800;
+}
 .science-list li .text-wrap h3 a:hover {
-  color: #396da8;
+  color: #656769;
 }
 .science-list li .text-wrap p {
   font-size: 14px;

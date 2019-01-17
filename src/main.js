@@ -7,8 +7,8 @@ Vue.use(VueRouter)
 // import Element from 'element-ui'
 //引入css文件
 // import 'element-ui/lib/theme-chalk/index.css';
-import './static/css/common.css'
-import './static/css/iconfont.css'
+import './static/scss/common.scss'
+import './static/scss/iconfont.scss'
 
 // Vue.use(Element)
 // Vue.prototype.$ELEMENT = { size: 'x-small', zIndex: 2000 };

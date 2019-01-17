@@ -14,8 +14,8 @@ module.exports = {
     module: {
         loaders: [ //require('./a.css||./a.js')
             {
-                test: /\.css$/,
-                loader:['style-loader','css-loader']
+                test: /\.scss$/,
+                loader:['style-loader','css-loader','sass-loader']
             },
             {
                 test: /\.(jpg|svg|png|gif|woff|ttf)$/,
