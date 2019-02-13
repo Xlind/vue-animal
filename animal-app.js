@@ -45,24 +45,17 @@ app.post('/api/register', (req, res) => {
         email: body.email
     }, (err, date) => {
         if (err) {
-            return res.status(200).json({
-                code: 400,
-                reason: err
-            })
+            jsonErr(res, err)
+            return
         }
         if (date) {
-            return res.status(200).json({
-                code: 400,
-                reason: 1011
-            })
+            jsonErr(res, 1011)
+            return
         }
         Account(body).save((err, account) => {
             if (err) {
-                console.log(err.message)
-                return res.status(200).json({
-                    code: 400,
-                    reason: err
-                })
+                jsonErr(res, err)
+                return
             }
             req.session.account = account
             res.status(200).json({
@@ -82,16 +75,12 @@ app.post('/api/login', (req, res) => {
         password: body.password
     }, (err, account) => {
         if (err) {
-            return res.status(200).json({
-                code: 400,
-                reason: err
-            })
+            jsonErr(res, err)
+            return
         }
         if (!account) {
-            return res.status(200).json({
-                code: 400,
-                reason: err
-            })
+            jsonErr(res, err)
+            return
         }
         req.session.account = account
         res.status(200).json({
@@ -113,16 +102,12 @@ app.post('/api/gainAccountInfo', (req, res) => {
         email: body.email,
     }, (err, account) => {
         if (err) {
-            return res.status(200).json({
-                code: 400,
-                reason: err
-            })
+            jsonErr(res, err)
+            return
         }
         if (!account) {
-            return res.status(200).json({
-                code: 400,
-                reason: 1001
-            })
+            jsonErr(res, 1021)
+            return
         }
         req.session.account = account
         res.status(200).json({
@@ -142,25 +127,19 @@ app.post('/api/changeAccountInfo', (req, res) => {
         email: body.email,
     }, (err, account) => {
         if (err) {
-            return res.status(200).json({
-                code: 400,
-                reason: err
-            })
+            jsonErr(res, err)
+            return
         }
         if (!account) {
-            return res.status(200).json({
-                code: 400,
-                reason: err
-            })
+            jsonErr(res, 1031)
+            return
         }
         req.session.account = account
         Account.updateOne({ email: body.email }, { name: body.name, sex: body.sex }, (err, result) => {
             if (err) {
-                return res.status(200).json({
-                    code: 400,
-                    reason: err
-                })
-            } else{
+                jsonErr(res, err)
+                return
+            } else {
                 console.log(result)
                 return res.status(200).json({
                     code: 200
@@ -170,29 +149,73 @@ app.post('/api/changeAccountInfo', (req, res) => {
     })
 })
 
-// 获取帖子 todo
+// 获取帖子
 app.post('/api/gainPosts', (req, res) => {
     let body = req.body
-    console.log('login params: ' + JSON.stringify(req.body))
-    Account.findOne({
-        email: body.email,
-        password: body.password
-    }, (err, account) => {
-        if (err) {
-            return res.status(500).json({
-                code: 400,
-                reason: 1001
+    console.log('gainPosts params: ' + JSON.stringify(req.body))
+    // 返回全部。
+    if (body.email === "all") {
+        Rescue.find({}, (err, posts) => {
+            if (err) {
+                jsonErr(res, err)
+                return
+            }
+            if (!posts) {
+                jsonErr(res, 'no posts')
+                return
+            }
+            res.status(200).json({
+                code: 200,
+                posts: posts
             })
+        })
+    } else {
+        Rescue.find({
+            email: body.email,
+        }, (err, posts) => {
+            if (err) {
+                jsonErr(res, err)
+                return
+            }
+            if (!posts) {
+                jsonErr(res, 'no posts')
+                return
+            }
+            res.status(200).json({
+                code: 200,
+                posts: posts
+            })
+        })
+    }
+})
+
+// 发布帖子
+app.post('/api/sendPosts', (req, res) => {
+    let body = req.body
+    console.log('sendPosts params: ' + JSON.stringify(req.body))
+    // 查是否有该用户。
+    Account.findOne({ email: body.email }, (err, account) => {
+        if (err) {
+            jsonErr(res, err)
+            return
         }
         if (!account) {
-            return res.status(200).json({
-                code: 400,
-                reason: 1001
-            })
+            jsonErr(res, 1041)
+            return
         }
-        req.session.account = account
-        res.status(200).json({
-            code: 200
+        body.foundtype = 0
+        Rescue(body).save((err, post) => {
+            if (err) {
+                jsonErr(res, err)
+                return
+            }
+            if (!post) {
+                jsonErr(res, 1042)
+                return
+            }
+            res.status(200).json({
+                code: 200
+            })
         })
     })
 })
@@ -200,3 +223,11 @@ app.post('/api/gainPosts', (req, res) => {
 app.listen(8004, function () {
     console.log('animal-api server is running...')
 })
+
+// 给客户端返回错误。快捷调用。
+function jsonErr(res, err) {
+    return res.status(200).json({
+        code: 400,
+        reason: err
+    })
+}

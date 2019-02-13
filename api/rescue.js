@@ -1,7 +1,7 @@
 var mongoose = require('mongoose')
 var Schema = mongoose.Schema
 // 连接数据库
-mongoose.connect('mongodb://localhost/rescue')
+mongoose.connect('mongodb://localhost/animal')
 
 var rescueSchema = new Schema({
     title: {

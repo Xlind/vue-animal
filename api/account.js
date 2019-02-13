@@ -1,7 +1,7 @@
 var mongoose = require('mongoose')
 var Schema = mongoose.Schema
 // 连接数据库
-mongoose.connect('mongodb://localhost/account')
+mongoose.connect('mongodb://localhost/animal')
 
 var accountSchema = new Schema({
     username: {
@@ -30,8 +30,6 @@ var accountSchema = new Schema({
         enum: [0, 1, 2],
         default: 0
     }
-}, {
-    collection: 'account'
 })
 
 module.exports = mongoose.model('account', accountSchema)
