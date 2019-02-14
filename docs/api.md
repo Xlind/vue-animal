@@ -161,7 +161,7 @@
 示例1：
 {
     "code": "200",
-    applications: [
+    "applications": [
         {
             "name": "黄业",
             "sex": "0",

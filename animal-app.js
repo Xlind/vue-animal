@@ -220,6 +220,49 @@ app.post('/api/sendPosts', (req, res) => {
     })
 })
 
+// 申请志愿者
+app.post('/api/applyForVolunteers', (req, res) => {
+    let body = req.body
+    console.log('applyForVolunteers params: ' + JSON.stringify(req.body))
+    Volunteer(body).save((err, post) => {
+        if (err) {
+            jsonErr(res, err)
+            return
+        }
+        if (!post) {
+            jsonErr(res, "save fail.")
+            return
+        }
+        res.status(200).json({
+            code: 200
+        })
+    })
+})
+
+// 查看所有志愿者申请
+app.post('/api/gainVolunteersApplication', (req, res) => {
+    let body = req.body
+    console.log('gainVolunteersApplication params: ' + JSON.stringify(req.body))
+    if (body.secret !== 'xldxldxld') {
+        jsonErr(res, 1051)
+        return
+    }
+    Volunteer.find({}, (err, volunteers) => {
+        if (err) {
+            jsonErr(res, err)
+            return
+        }
+        if (!volunteers) {
+            jsonErr(res, 1051)
+            return
+        }
+        res.status(200).json({
+            code: 200,
+            applications: volunteers
+        })
+    })
+})
+
 app.listen(8004, function () {
     console.log('animal-api server is running...')
 })
