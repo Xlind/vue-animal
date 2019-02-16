@@ -89,11 +89,6 @@ app.post('/api/login', (req, res) => {
     })
 })
 
-//退出
-app.get('/logut', (req, res) => {
-    req.session.account = null
-})
-
 // 获取个人信息
 app.post('/api/gainAccountInfo', (req, res) => {
     let body = req.body

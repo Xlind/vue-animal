@@ -83,12 +83,10 @@
 1. 请求地址：/gainPosts
 2. 请求参数：
 + email: [all(返回所有的帖子)、9346947038@qq.com(返回发帖人为指定邮箱的帖子)...]
-+ postsType: [0(获取已发布的帖子)、1(获取已解决的帖子)、2(获取已发布、已接近的帖子)]
 3. 返回json数组中帖子的数据格式：
 + title: 申请领养
 + content: xxxxx
-+ posterEmail: 936947038@qq.com
-+ status: [0(已发布)、1(已解决)]
++ email: 936947038@qq.com
 + publishTime: 1544258923(时间戳，单位秒)
 + solveTime: [0(该帖子未解决)、1544258923(时间戳，单位秒)...]
 + type: [0(寻找主人帖)、1(寻找宠物帖)]
@@ -98,8 +96,7 @@
         {
             "title": "我的狗走丢了",
             "content": "我的狗狗毛是金色的，很可爱，大家帮忙找一下哈",
-            "posterEmail": "936947038@qq.com",
-            "status": "0",
+            "email": "936947038@qq.com",
             "publishTime": "1544258923",
             "solveTime": "0",
             "type": "1"
@@ -107,8 +104,7 @@
         {
             "title": "发现一只流浪狗",
             "content": "流浪狗狗毛是金色的，很可爱，大家帮忙找一下主人哈",
-            "posterEmail": "936947038@qq.com",
-            "status": "0",
+            "email": "936947038@qq.com",
             "publishTime": "1544258923",
             "solveTime": "0",
             "type": "0"
