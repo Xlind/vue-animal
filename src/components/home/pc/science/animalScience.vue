@@ -42,6 +42,7 @@
         </div>
       </div>
     </div>
+    <onToTop-vue></onToTop-vue>
   </div>
 </template>
 
@@ -52,6 +53,7 @@ const animalsciencebgVue = r =>
     () => r(require("./animalsciencebg.vue")),
     "animalsciencebgVue"
   ); //栏目
+
 export default {
   data() {
     return {

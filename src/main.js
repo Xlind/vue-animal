@@ -1,4 +1,4 @@
-"use strict"
+
 import Vue from 'vue'
 //引入路由
 import VueRouter from 'vue-router'
@@ -45,6 +45,11 @@ Vue.component('footerMVue', footerMVue)
 const registerVue = r => require.ensure([], () => r(require('./components/header-footer/register.vue')), 'register'); //注册
 const loginVue = r => require.ensure([], () => r(require('./components/header-footer/login.vue')), 'login'); //登录
 const animalScienceVue = r => require.ensure([], () => r(require('./components/home/pc/science/animalScience.vue')), 'animalScience'); //科普
+const relateRecommendVue = r => require.ensure([], () => r(require('./components/home/pc/relateRecommend/relateRecommend.vue')), 'relateRecommend'); //相关推荐
+
+//注册通用组件
+Vue.component('onToTopVue', onToTopVue)
+const onToTopVue = r => require.ensure([], () => r(require('./components/common/onToTop.vue')),'onToTop'); //返回顶部
 
 let router = new VueRouter({
     routes: [{
@@ -67,6 +72,11 @@ let router = new VueRouter({
             name: 'animalScience',
             path: '/home/animalScience',
             component: animalScienceVue
+        },
+        {
+            name: 'relateRecommend',
+            path: '/home/relateRecommend',
+            component: relateRecommendVue
         },
         {
             name: 'login',

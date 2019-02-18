@@ -45,7 +45,7 @@
             <a href="#">公益活动</a>
           </li>
           <li>
-            <a href="#">相关推荐</a>
+           <router-link :to="{name:'relateRecommend'}">相关推荐</router-link>
           </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
