@@ -2,7 +2,7 @@
 <template>
   <div>
     <header-vue></header-vue>
-    <animalsciencebg-vue></animalsciencebg-vue>
+    <animalSciencebg-vue></animalSciencebg-vue>
     <div class="container" id="science">
       <div class="row">
         <div class="col-md-3">
@@ -47,11 +47,11 @@
 </template>
 
 <script>
-const animalsciencebgVue = r =>
+const animalSciencebgVue = r =>
   require.ensure(
     [],
-    () => r(require("./animalsciencebg.vue")),
-    "animalsciencebgVue"
+    () => r(require('./animalSciencebg.vue')),
+    'animalSciencebgVue'
   ); //栏目
 
 export default {
@@ -89,7 +89,7 @@ export default {
     }
   },
   components: {
-    animalsciencebgVue
+    animalSciencebgVue
   }
 };
 </script>
