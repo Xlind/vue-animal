@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
+const cookieParser = require('cookie-parser')
 const session = require('express-session')
 
 //引入连接mongoodb数据库的表
@@ -13,6 +14,9 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
     extended: true
 }))
+
+// 配置cookie-parser中间件，完成http登录状态校验
+app.use(cookieParser())
 
 //配置session
 app.use(session({
@@ -37,6 +41,9 @@ app.get('/', (req, res) => {
     res.sendfile('./dist/index.html')
 })
 
+// api运行时变量
+var loginAccount = {}
+
 //提交注册表单
 app.post('/api/register', (req, res) => {
     let body = req.body
@@ -57,7 +64,6 @@ app.post('/api/register', (req, res) => {
                 jsonErr(res, err)
                 return
             }
-            req.session.account = account
             res.status(200).json({
                 code: 200
             })
@@ -79,14 +85,41 @@ app.post('/api/login', (req, res) => {
             return
         }
         if (!account) {
-            jsonErr(res, err)
+            jsonErr(res, 'error email and password.')
             return
         }
-        req.session.account = account
+        loginAccount = account
+        console.log(loginAccount)
+        res.cookie('email', loginAccount.email, { maxAge: 3600000, httpOnly: true })
         res.status(200).json({
             code: 200
         })
     })
+})
+
+//登出
+app.post('/api/logout', (req, res) => {
+    loginAccount = {}
+    res.status(200).json({
+        code: 200
+    })
+})
+
+//是否是登录状态
+app.post('/api/isLogin', (req, res) => {
+    let email = req.cookies.email
+    console.log('isLogin params: ' + email)
+    console.log(loginAccount)
+    if (loginAccount.email === email) {
+        res.status(200).json({
+            code: 200,
+            email: loginAccount.email,
+            username: loginAccount.username,
+            sex: loginAccount.sex
+        })
+    } else {
+        jsonErr(res, 'cookie email: ' + email + ". cache email: " + loginAccount.email)
+    }
 })
 
 // 获取个人信息
@@ -104,7 +137,6 @@ app.post('/api/gainAccountInfo', (req, res) => {
             jsonErr(res, 1021)
             return
         }
-        req.session.account = account
         res.status(200).json({
             code: 200,
             email: account.email,
@@ -129,7 +161,6 @@ app.post('/api/changeAccountInfo', (req, res) => {
             jsonErr(res, 1031)
             return
         }
-        req.session.account = account
         Account.updateOne({ email: body.email }, { name: body.name, sex: body.sex }, (err, result) => {
             if (err) {
                 jsonErr(res, err)
