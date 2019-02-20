@@ -12,14 +12,17 @@ module.exports = {
         //代表当前目录的上一级的dist
     },
     module: {
-        loaders: [ //require('./a.css||./a.js')
+        rules: [ //require('./a.css||./a.js')
             {
                 test: /\.scss$/,
                 loader:['style-loader','css-loader','sass-loader']
             },
             {
                 test: /\.(jpg|svg|png|gif|woff|ttf)$/,
-                loader: 'url-loader?limit=4096&name=[name].[ext]',
+                loader: 'url-loader',
+                options: {
+                    name: '[name].[ext]?[hash]'
+                }
    
             }, { //处理ES6的js
                 test: /\.js$/,

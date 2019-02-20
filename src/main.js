@@ -17,8 +17,8 @@ import Axios from 'axios'
 //挂载原型
 Vue.prototype.$ajax = Axios
 //默认配置
-Axios.defaults.baseURL = 'http://192.168.100.18:8004/api/'
-// Axios.defaults.baseURL = 'http://111.230.232.189:8004/api/'
+// Axios.defaults.baseURL = 'http://127.0.0.1:8004/api/'
+Axios.defaults.baseURL = 'http://111.230.232.189:8004/api/'
 
 //过滤器
 // import Moment from 'moment'
