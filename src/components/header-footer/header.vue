@@ -61,10 +61,19 @@
           </li>
         </ul>
         <ul v-if="loginState == 2" class="nav navbar-nav navbar-right">
-          <li>
-            <router-link :to="{name:'account'}">
-              <span class="glyphicon glyphicon-user"></span> {{ username }} 
-            </router-link>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              {{ username }}
+              <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <router-link :to="{name:'account'}">个人中心</router-link>
+              </li>
+              <li>
+                <a v-on:click="logout">登出</a>
+              </li>
+            </ul>
           </li>
         </ul>
       </div>
@@ -80,7 +89,17 @@ export default {
       username: ""
     };
   },
-  methods: {},
+  methods: {
+    logout() {
+      this.$ajax({
+        method: "post",
+        url: "/logout"
+      }).then(res => {
+        this.loginState = 1;
+        this.username = "";
+      });
+    }
+  },
   created() {
     this.$ajax({
       method: "post",
