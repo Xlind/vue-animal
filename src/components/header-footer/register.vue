@@ -31,7 +31,7 @@
         </div>
         <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-default">注册</button>
+            <button type="submit" class="btn btn-default">注册</button> {{ msg }}
           </div>
         </div>
       </form>
@@ -42,32 +42,35 @@
 <script>
 export default {
   data() {
-    return {  
-      regist:{
-        username:'',
-        email:'',
-        password:'',
-        sex: '0'   
-      }
+    return {
+      regist: {
+        username: "",
+        email: "",
+        password: "",
+        sex: "0"
+      },
+      msg: ""
     };
   },
-  methods:{
-   registerData(e){
-     this.$ajax({
-       url:"/register",
-       method:"post",
-       data:this.regist
-     }).then(res=>{
-       if(res.data.code==200){
-         alert("注册成功")
-       }else if (res.data.code == 400) {
-         alert("注册失败")
-       }
-     })
-   }
+  methods: {
+    registerData(e) {
+      this.$ajax({
+        url: "/register",
+        method: "post",
+        data: this.regist
+      }).then(res => {
+        if (res.data.code == 200) {
+          this.msg = "注册成功, 3s后跳转至首页";
+          setTimeout(() => {
+            this.$router.push("/home");
+          }, 3000);
+        } else if (res.data.code == 400) {
+          this.msg = "注册失败";
+        }
+      });
+    }
   }
 };
 </script>
 <style scoped>
-
 </style>

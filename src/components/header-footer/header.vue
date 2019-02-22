@@ -45,10 +45,10 @@
             <a href="#">公益活动</a>
           </li>
           <li>
-           <router-link :to="{name:'relateRecommend'}">相关推荐</router-link>
+            <router-link :to="{name:'relateRecommend'}">相关推荐</router-link>
           </li>
         </ul>
-        <ul class="nav navbar-nav navbar-right">
+        <ul v-if="loginState == 1" class="nav navbar-nav navbar-right">
           <li>
             <router-link :to="{name:'register'}">
               <span class="glyphicon glyphicon-user"></span> 注册
@@ -60,23 +60,40 @@
             </router-link>
           </li>
         </ul>
+        <ul v-if="loginState == 2" class="nav navbar-nav navbar-right">
+          <li>
+            <router-link :to="{name:'account'}">
+              <span class="glyphicon glyphicon-user"></span> {{ username }} 
+            </router-link>
+          </li>
+        </ul>
       </div>
     </div>
   </nav>
 </template>
 
 <script>
-// const registerVue = r => require.ensure([], () => r(require('./register.vue')), 'register');//注册
-// const loginVue = r => require.ensure([], () => r(require('./login.vue')), 'login');//登录
 export default {
   data() {
-    return {};
+    return {
+      loginState: 0,
+      username: ""
+    };
   },
-  // components:{
-  //   registerVue,
-  //   loginVue
-  // },
-  methods: {}
+  methods: {},
+  created() {
+    this.$ajax({
+      method: "post",
+      url: "/isLogin"
+    }).then(res => {
+      if (res.data.code == 200) {
+        this.loginState = 2;
+        this.username = res.data.username;
+      } else if (res.data.code == 400) {
+        this.loginState = 1;
+      }
+    });
+  }
 };
 </script>
 <style>

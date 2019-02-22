@@ -37,7 +37,7 @@
       </div>
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-          <button type="submit" class="btn btn-default">登录</button>
+          <button type="submit" class="btn btn-default">登录</button> {{ msg }}
         </div>
       </div>
     </form>
@@ -51,7 +51,8 @@ export default {
       formObj: {
         email: "",
         password: ""
-      }
+      },
+      msg: ''
     };
   },
   methods: {
@@ -62,10 +63,12 @@ export default {
         url: "/login"
       }).then(res => {
         if (res.data.code == 200) {
-          alert("登陆成功");
-          
+          this.msg = '登录成功, 3s后跳转至首页'
+          setTimeout(() => {
+            this.$router.push('/home')
+          }, 3000)
         } else if (res.data.code == 400) {
-          alert("登陆失败");
+          this.msg = '登录失败'
         }
       });
     }
