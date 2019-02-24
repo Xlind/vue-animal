@@ -46,6 +46,7 @@ const registerVue = r => require.ensure([], () => r(require('./components/header
 const loginVue = r => require.ensure([], () => r(require('./components/header-footer/login.vue')), 'login'); //登录
 const animalScienceVue = r => require.ensure([], () => r(require('./components/home/pc/science/animalScience.vue')), 'animalScience'); //科普
 const relateRecommendVue = r => require.ensure([], () => r(require('./components/home/pc/relateRecommend/relateRecommend.vue')), 'relateRecommend'); //相关推荐
+const welfareActivityVue = r => require.ensure([], () => r(require('./components/home/pc/welfareActivity/welfareActivity.vue')), 'welfareActivity'); //公益活动
 
 //注册通用组件
 Vue.component('onToTopVue', onToTopVue)
@@ -77,6 +78,11 @@ let router = new VueRouter({
             name: 'relateRecommend',
             path: '/home/relateRecommend',
             component: relateRecommendVue
+        },
+        {
+            name: 'welfareActivity',
+            path: '/home/welfareActivity',
+            component: welfareActivityVue
         },
         {
             name: 'login',

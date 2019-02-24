@@ -42,7 +42,7 @@
             <a href="#">救助申领</a>
           </li>
           <li>
-            <a href="#">公益活动</a>
+            <router-link :to="{name:'welfareActivity'}">公益活动</router-link>
           </li>
           <li>
             <router-link :to="{name:'relateRecommend'}">相关推荐</router-link>
