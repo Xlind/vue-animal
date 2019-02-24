@@ -110,7 +110,7 @@ app.post('/api/isLogin', (req, res) => {
     let email = req.cookies.email
     console.log('isLogin params: ' + email)
     console.log(loginAccount)
-    if (loginAccount.email === email) {
+    if (loginAccount.email !== undefined && loginAccount.email === email) {
         res.status(200).json({
             code: 200,
             email: loginAccount.email,
