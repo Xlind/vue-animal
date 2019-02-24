@@ -16,8 +16,8 @@
               <div class="wrap">
                 <a href="">
                   <img
-                    src="http://www.xzwyu.com/data/attachment/portal/201608/14/094607348134884oa341yo.jpg"
-                    srcset="http://www.xzwyu.com/data/attachment/portal/201608/14/094607348134884oa341yo.jpg"
+                    src="http://111.230.232.189:8004/api/anlunbo/094607348134884oa341yo.jpg"
+                    srcset="http://111.230.232.189:8004/api/anlunbo/094607348134884oa341yo.jpg"
                   >
                   <i></i>
                   <p>
@@ -33,8 +33,8 @@
               <div class="wrap">
                 <a href="">
                   <img
-                    src="http://www.xzwyu.com/data/attachment/portal/201608/13/081007epewf6kw1tgba6rr.jpg"
-                    srcset="http://www.xzwyu.com/data/attachment/portal/201608/13/081007epewf6kw1tgba6rr.jpg"
+                    src="http://111.230.232.189:8004/api/anlunbo/081007epewf6kw1tgba6rr.jpg"
+                    srcset="http://111.230.232.189:8004/api/anlunbo/081007epewf6kw1tgba6rr.jpg"
                   >
                   <i></i>
                   <p>
@@ -50,8 +50,8 @@
               <div class="wrap">
                 <a href="">
                   <img
-                    src="http://www.xzwyu.com/data/attachment/portal/201603/18/144626yqf3887czf4b6k7f.jpg"
-                    srcset="http://www.xzwyu.com/data/attachment/portal/201603/18/144626yqf3887czf4b6k7f.jpg"
+                    src="http://111.230.232.189:8004/api/anlunbo/144626yqf3887czf4b6k7f.jpg"
+                    srcset="http://111.230.232.189:8004/api/anlunbo/144626yqf3887czf4b6k7f.jpg"
                   >
                   <i></i>
                   <p>
@@ -67,8 +67,8 @@
               <div class="wrap">
                 <a href="">
                   <img
-                    src="http://www.xzwyu.com/data/attachment/portal/201607/28/145647e37ff5lfrc2cfk7f.jpg"
-                    srcset="http://www.xzwyu.com/data/attachment/portal/201607/28/145647e37ff5lfrc2cfk7f.jpg"
+                    src="http://111.230.232.189:8004/api/anlunbo/145647e37ff5lfrc2cfk7f.jpg"
+                    srcset="http://111.230.232.189:8004/api/anlunbo/145647e37ff5lfrc2cfk7f.jpg"
                   >
                   <i></i>
                   <p>
@@ -86,8 +86,8 @@
               <div class="wrap">
                 <a href="">
                   <img
-                    src="http://www.xzwyu.com/data/attachment/portal/201504/06/170756u5tk2tu3m7t1oczt.jpg"
-                    srcset="http://www.xzwyu.com/data/attachment/portal/201504/06/170756u5tk2tu3m7t1oczt.jpg"
+                    src="http://111.230.232.189:8004/api/anlunbo/170756u5tk2tu3m7t1oczt.jpg"
+                    srcset="http://111.230.232.189:8004/api/anlunbo/170756u5tk2tu3m7t1oczt.jpg"
                   >
                   <i></i>
                   <p>
@@ -103,8 +103,8 @@
               <div class="wrap">
                 <a href="">
                   <img
-                    src="http://www.xzwyu.com/data/attachment/portal/201603/20/124104l1klbxll7gznxyyn.jpg"
-                    srcset="http://www.xzwyu.com/data/attachment/portal/201603/20/124104l1klbxll7gznxyyn.jpg"
+                    src="http://111.230.232.189:8004/api/anlunbo/124104l1klbxll7gznxyyn.jpg"
+                    srcset="http://111.230.232.189:8004/api/anlunbo/124104l1klbxll7gznxyyn.jpg"
                   >
                   <i></i>
                   <p>
@@ -120,8 +120,8 @@
               <div class="wrap">
                 <a href="">
                   <img
-                    src="http://www.xzwyu.com/data/attachment/portal/201603/13/102851kqjk1hnk3qj19kkr.jpg"
-                    srcset="http://www.xzwyu.com/data/attachment/portal/201603/13/102851kqjk1hnk3qj19kkr.jpg"
+                    src="http://111.230.232.189:8004/api/anlunbo/102851kqjk1hnk3qj19kkr.jpg"
+                    srcset="http://111.230.232.189:8004/api/anlunbo/102851kqjk1hnk3qj19kkr.jpg"
                   >
                   <i></i>
                   <p>
@@ -137,8 +137,8 @@
               <div class="wrap">
                 <a href="">
                   <img
-                    src="http://www.xzwyu.com/data/attachment/portal/201603/12/084344u9ytt9nup9tpnpw9.jpg"
-                    srcset="http://www.xzwyu.com/data/attachment/portal/201603/12/084344u9ytt9nup9tpnpw9.jpg"
+                    src="http://111.230.232.189:8004/api/anlunbo/084344u9ytt9nup9tpnpw9.jpg"
+                    srcset="http://111.230.232.189:8004/api/anlunbo/084344u9ytt9nup9tpnpw9.jpg"
                   >
                   <i></i>
                   <p>
