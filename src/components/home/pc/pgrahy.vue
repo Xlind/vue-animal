@@ -1,7 +1,7 @@
 <!-- 动物专题 -->
 <template>
   <div>
-      <div id="pgrahy">
+    <div id="pgrahy">
       <div class="container">
         <div class="page-header">
           <a class="btn btn-link">
@@ -18,18 +18,12 @@
                   <button type="button" class="btn btn-site">{{ theme.title }}</button>
                 </a>
               </div>
-              <span class="label">图标</span>
-              <img
-                v-bind:src="theme.url"
-                alt="Singapore Government Proposes Ban on Sale of Elephant Ivory"
-              >
+              <img v-bind:src="theme.url" v-bind:alt="theme.msg">
             </figure>
             <figcaption>
-              <h5>
-                <a class="page-link" href>
-                  <span class="ellipsis-multiline">{{ theme.msg }}</span>
-                </a>
-              </h5>
+              <a class="page-link" href>
+                <span class="ellipsis-multiline">{{ theme.msg }}</span>
+              </a>
               <span class="date">{{ theme.date }}</span>
             </figcaption>
           </div>
@@ -41,33 +35,31 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
-         themes: [
+      themes: [
         {
           title: "狮子专题",
-          url:
-            "http://img5.imgtn.bdimg.com/it/u=2168427908,4072089613&fm=200&gp=0.jpg",
-          msg: "Singapore Government Proposes Ban on Sale of Elephant Ivory",
-          date: "November 29, 2018"
+          url: "/api/img/lion2.jpeg",
+          msg: "南非母狮遭鬣狗群围困，长啸一声喊来同伴支援",
+          date: "2019年02月9日 18:30"
         },
         {
           title: "老虎专题",
-          url: "http://img5.imgtn.bdimg.com/it/u=2168427908,4072089613&fm=200&gp=0.jpg",
-          msg: "Singapore Government Proposes Ban on Sale of Elephant Ivory",
-          date: "November 29, 2018"
+          url: "/api/img/tiger.jpeg",
+          msg: "一山不容二虎！老虎姐妹上演激烈领地之争",
+          date: "2019年02月10日 19:39"
         },
         {
           title: "大象专题",
-          url: "http://img5.imgtn.bdimg.com/it/u=2168427908,4072089613&fm=200&gp=0.jpg",
-          msg: "Singapore Government Proposes Ban on Sale of Elephant Ivory",
-          date: "November 29, 2018"
+          url: "/api/img/elephant.jpeg",
+          msg: "失眠还是不敢睡？研究称野生大象每天只睡2小时",
+          date: "2019年2月11日 15:09"
         }
       ]
     };
   }
-}
-
+};
 </script>
 <style>
 /* 动物专题 */
@@ -149,7 +141,7 @@ figcaption h5 {
 }
 .ellipsis-multiline {
   color: #333;
-  font-size: 15px;
+  font-size: 18px;
 }
 span.date {
   position: absolute;
@@ -158,5 +150,6 @@ span.date {
   bottom: 10px;
   left: 25px;
   color: #333;
+  font-size: 15px;
 }
 </style>

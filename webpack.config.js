@@ -18,7 +18,7 @@ module.exports = {
                 loader:['style-loader','css-loader','sass-loader']
             },
             {
-                test: /\.(jpg|svg|png|gif|woff|ttf)$/,
+                test: /\.(jpg|jpeg|svg|png|gif|woff|ttf)$/,
                 loader: 'url-loader',
                 options: {
                     name: '[name].[ext]?[hash]'
