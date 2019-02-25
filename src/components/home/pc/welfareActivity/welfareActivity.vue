@@ -46,14 +46,14 @@
             </strong>
           </div>
           <div class="consumptionDesc">
-            <!-- 最新信息开始数据 -->
-            <div class="activity-item">
-              <img src="/api/animalActsPic/20180120.jpg">
-              <h5>标题就是我</h5>
-              <p class="item-content">hhhhhhhhhhhhhhhhhhhhhhhhhh</p>
-              <p class="item-time">2019-12-30</p>
+            <div v-for="(act, index) in activites.newAct" :key="index">
+              <div class="activity-item">
+                <img v-bind:src="act.url">
+                <h5>{{ act.title }}</h5>
+                <p class="item-content">{{ act.content }}</p>
+                <p class="item-time">{{ act.date }}</p>
+              </div>
             </div>
-            <!-- 最新信息结束数据 -->
           </div>
           <div class="grayTitle">
             <strong>
@@ -63,14 +63,14 @@
             </strong>
           </div>
           <div class="consumptionDesc">
-            <!-- 往期回顾开始数据 -->
-            <div class="activity-item">
-              <img src="/api/animalActsPic/20180120.jpg">
-              <h5>标题就是我</h5>
-              <p class="item-content">hhhhhhhhhhhhhhhhhhhhhhhhhh</p>
-              <p class="item-time">2019-12-30</p>
+            <div v-for="(act, index) in activites.oldAct" :key="index">
+              <div class="activity-item">
+                <img v-bind:src="act.url">
+                <h5>{{ act.title }}</h5>
+                <p class="item-content">{{ act.content }}</p>
+                <p class="item-time">{{ act.date }}</p>
+              </div>
             </div>
-            <!-- 往期回顾结束数据 -->
           </div>
         </div>
       </div>
@@ -83,7 +83,19 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      activites: {}
+    };
+  },
+  created() {
+    this.$ajax
+      .get("animalActs.json")
+      .then(res => {
+        this.activites = res.data;
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 };
 </script>
