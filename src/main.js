@@ -7,6 +7,7 @@ Vue.use(VueRouter)
 import './static/scss/common.scss'
 import './static/scss/iconfont.scss'
 
+
 //axios引入
 import Axios from 'axios'
 //挂载原型
@@ -40,6 +41,9 @@ Vue.component('footerMVue', footerMVue)
 const registerVue = r => require.ensure([], () => r(require('./components/header-footer/register.vue')), 'register'); //注册
 const loginVue = r => require.ensure([], () => r(require('./components/header-footer/login.vue')), 'login'); //登录
 const animalScienceVue = r => require.ensure([], () => r(require('./components/home/pc/science/animalScience.vue')), 'animalScience'); //科普
+const animalNewVue = r => require.ensure([], () => r(require('./components/home/pc/science/animalNew.vue')), 'animalNew'); //动物新闻
+const animalCommonSenseVue = r => require.ensure([], () => r(require('./components/home/pc/science/animalCommonSense.vue')), 'animalCommonSense'); //动物常识
+const applyForReliefVue = r => require.ensure([], () => r(require('./components/home/pc/applyForRelief/applyForRelief.vue')), 'applyForRelief'); //申领救助
 const relateRecommendVue = r => require.ensure([], () => r(require('./components/home/pc/relateRecommend/relateRecommend.vue')), 'relateRecommend'); //相关推荐
 const welfareActivityVue = r => require.ensure([], () => r(require('./components/home/pc/welfareActivity/welfareActivity.vue')), 'welfareActivity'); //公益活动
 
@@ -68,6 +72,21 @@ let router = new VueRouter({
             name: 'animalScience',
             path: '/home/animalScience',
             component: animalScienceVue
+        },
+        {
+            name: 'animalNew',
+            path: '/home/animalNew',
+            component: animalNewVue
+        },
+        {
+            name: 'animalCommonSense',
+            path: '/home/animalCommonSense',
+            component: animalCommonSenseVue
+        },
+        {
+            name: 'applyForRelief',
+            path: '/home/applyForRelief',
+            component: applyForReliefVue
         },
         {
             name: 'relateRecommend',

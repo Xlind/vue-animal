@@ -1,7 +1,7 @@
 <!-- header -->
 
 <template>
-  <nav role="navigation" class="navbar-fixed-top">
+  <nav role="navigation" class="navbar-fixed-top nav-color">
     <div class="container-fluid">
       <div class="navbar-header">
         <button
@@ -31,15 +31,15 @@
                 <router-link :to="{name:'animalScience'}">野生动物</router-link>
               </li>
               <li>
-                <a href="#">动物常识</a>
+                <router-link :to="{name:'animalCommonSense'}">动物常识</router-link>
               </li>
               <li>
-                <a href="#">动物新闻</a>
+                <router-link :to="{name:'animalNew'}">动物新闻</router-link>
               </li>
             </ul>
           </li>
           <li>
-            <a href="#">救助申领</a>
+            <router-link :to="{name:'applyForRelief'}">救助申领</router-link>
           </li>
           <li>
             <router-link :to="{name:'welfareActivity'}">公益活动</router-link>
@@ -143,5 +143,9 @@ nav .navbar-header {
 }
 .icon-bar {
   background-color: #ffd04b;
+}
+.nav-color a{
+  color: #ffd04b;
+   text-decoration: none;
 }
 </style>
