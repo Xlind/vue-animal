@@ -3,15 +3,15 @@ import Vue from 'vue'
 //引入路由
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
-// //引入element-ui
-// import Element from 'element-ui'
-//引入css文件
-// import 'element-ui/lib/theme-chalk/index.css';
+//引入element-ui
+import Element from 'element-ui'
+// 引入css文件
+import 'element-ui/lib/theme-chalk/index.css';
 import './static/scss/common.scss'
 import './static/scss/iconfont.scss'
 
-// Vue.use(Element)
-// Vue.prototype.$ELEMENT = { size: 'x-small', zIndex: 2000 };
+Vue.use(Element)
+Vue.prototype.$ELEMENT = { size: 'small', zIndex: 2000 };
 //axios引入
 import Axios from 'axios'
 //挂载原型

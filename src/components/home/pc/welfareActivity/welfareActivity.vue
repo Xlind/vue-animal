@@ -6,7 +6,7 @@
     <!-- 活动 -->
     <div class="containMain">
       <div class="innerPageBg">
-        <img src="http://www.awfchina.cn/upload/2015/06/Billy_Dodson_Elephants.jpg" alt>
+        <img src="https://d31j74p4lpxrfp.cloudfront.net/sites/default/files/styles/hero/public/cn_files/wild_animal.jpg?itok=LC15H3HE" alt>
       </div>
       <div class="gary-bg">
         <h1 class="cateTitle cateTitleColorWhite">保护人类最后一片原生态净土！</h1>
@@ -46,13 +46,11 @@
             </strong>
           </div>
           <div class="consumptionDesc">
-            <div v-for="(act, index) in activites.newAct" :key="index">
-              <div class="activity-item">
+              <div class="activity-item" v-for="(act, index) in activites.newAct" :key="index">
                 <img v-bind:src="act.url">
                 <h5>{{ act.title }}</h5>
                 <p class="item-content">{{ act.content }}</p>
                 <p class="item-time">{{ act.date }}</p>
-              </div>
             </div>
           </div>
           <div class="grayTitle">
@@ -63,13 +61,11 @@
             </strong>
           </div>
           <div class="consumptionDesc">
-            <div v-for="(act, index) in activites.oldAct" :key="index">
-              <div class="activity-item">
+              <div class="activity-item" v-for="(act, index) in activites.oldAct" :key="index">
                 <img v-bind:src="act.url">
                 <h5>{{ act.title }}</h5>
                 <p class="item-content">{{ act.content }}</p>
                 <p class="item-time">{{ act.date }}</p>
-              </div>
             </div>
           </div>
         </div>
