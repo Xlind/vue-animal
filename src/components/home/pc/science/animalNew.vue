@@ -11,14 +11,23 @@
       <!-- 新闻 -->
       <div class="innerPageCon_1">
         <div class="panel-group" id="accordion">
-          <div class="panel panel-default" v-for="(n, index) in news" :key="index">
+          <div class="grayTitle">
+            <strong>
+              动物新闻
+              <span class="lineL"></span>
+              <span class="lineR"></span>
+            </strong>
+          </div>
+          <div class="panel panel-default news" v-for="(n, index) in news" :key="index">
             <div class="panel-heading">
               <h4 class="panel-title">
+                <strong>
                 <a
                   data-toggle="collapse"
                   data-parent="#accordion"
                   v-bind:href="'#collapse' + index"
-                >{{ n.title }}</a>{{ n.time }}
+                >{{ n.title }}</a>
+                {{ n.time }}</strong>
               </h4>
             </div>
             <div v-bind:id="'collapse' + index" class="panel-collapse collapse">
@@ -46,9 +55,7 @@ export default {
       .then(res => {
         this.news = res.data.animalNews;
       })
-      .catch(err => {
-        console.log(err);
-      });
+      .catch(err => {});
   }
 };
 </script>
@@ -71,14 +78,57 @@ export default {
   height: auto;
 }
 .innerPageCon_1 {
+  padding: 20px;
   width: 1200px;
   margin-top: 300px;
   margin-left: auto;
   margin-right: auto;
-  background-color: azure;
+  background-color: white;
+  /* background-color: azure; */
   -webkit-animation: appear-up 1s ease;
   -moz-animation: appear-up 1s ease;
   -o-animation: appear-up 1s ease;
   animation: appear-up 1s ease;
+}
+.grayTitle {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #413d3b;
+  font-size: 24px;
+  overflow: hidden;
+}
+.grayTitle strong {
+  display: inline-block;
+  position: relative;
+  font-weight: normal;
+}
+.grayTitle span {
+  width: 100px;
+  height: 1px;
+  overflow: hidden;
+  background-color: #413d3b;
+  font-size: 1px;
+  position: absolute;
+  top: 50%;
+  display: inline-block;
+}
+.grayTitle .lineL {
+  left: -120px;
+}
+.grayTitle .lineR {
+  right: -120px;
+}
+.news .panel-heading {
+  background-color: white;
+}
+.news .panel-heading a {
+  font-size: 20px;
+  color: #4b9e98;
+}
+.news .panel-body {
+  line-height: 2.2;
+  font-size: 17px;
+  color: black;
+  padding: 15px 25px;
 }
 </style>

@@ -6,12 +6,19 @@
     <!-- 申领救助 -->
     <div class="nav-img"></div>
     <div class="container nav-content">
-      <div class="item-nav">救助站</div>
-      <div class="item-nav">救助站</div>
-      <div class="item-nav">救助站</div>
+      <div class="item-nav">
+        <a href="#">申领处</a>
+        <p>说明hhhhhhhh</p>
+      </div>
+      <div class="item-nav">
+        <a href="#">救助站</a>
+        <p>hhhhhhhh</p>
+      </div>
+      <div class="item-nav">
+        <a href="#">志愿者</a>
+        <p>hhhhhhhh</p>
+      </div>
     </div>
-    <div class="container item-content"></div>
-    <div class="nav-title"></div>
     <!-- 尾部 -->
     <footer-vue></footer-vue>
   </div>
@@ -38,16 +45,25 @@ export default {
   display: flex;
   justify-content: space-around;
 }
-.nav-content .item-nav {
-  width: 300px;
-  height: 300px;
-  background-color: aqua;
-  color: #000;
+.nav-content .item-nav a {
+  color: #fff;
+  background-color: #6fc0ce;
+  display: block;
+  text-align: center;
+  width: 316px;
+  height: 46px;
+  line-height: 46px;
+  vertical-align: middle;
+  border: 1px solid #fff;
+  font-size: 20px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  margin: 50px auto 0;
 }
-.item-content{
-    width: 100%;
-    padding: 30px;
-    background-color: azure;
+.nav-content .item-nav p {
+  padding: 10px 10px;
+  color: #5a5a5a;
+  font-size: 18px;
 }
-
 </style>

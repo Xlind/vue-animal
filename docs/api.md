@@ -43,7 +43,7 @@
 {
     "code": "200"
     "email": "936947038@qq.com",
-    "username": "黄业",
+    "username": "铛铛",
     "sex": "0"
 }
 
@@ -53,7 +53,7 @@
 1. 请求地址：/register
 2. 请求参数：
 + email: 936947038@qq.com
-+ name: 黄业
++ name: 铛铛
 + password: 12345678
 + sex: [0(男)、1(女)]
 3. 返回json数据格式：
@@ -73,13 +73,13 @@
 + code: [200(修改成功)、400(修改失败)]。
 + reason(仅当code为400时才有此字段): [1021(无此邮箱用户)]。
 + email: 936947038@qq.com
-+ username: 黄业
++ username: 铛铛
 + sex: [0(男)、1(女)]
 示例1：
 {
     "code": "200",
     "email": "936947038@qq.com",
-    "username": "黄业",
+    "username": "铛铛",
     "sex": "0"
 }
 示例2：
@@ -93,7 +93,7 @@
 1. 请求地址：/changeAccountInfo
 2. 请求参数：
 + email: 936947038@qq.com
-+ name: 黄业业
++ name: 铛铛
 + sex: [0(男)、1(女)]
 3. 返回json数据格式：
 + code: [200(修改成功)、400(修改失败)]。
@@ -159,7 +159,7 @@
 
 1. 请求地址：/applyForVolunteers
 2. 请求参数：
-+ name: 黄业
++ name: 铛铛
 + sex: [0(男)、1(女)]
 + age: 22
 + contact: 17329967263
@@ -185,14 +185,14 @@
     "code": "200",
     "applications": [
         {
-            "name": "黄业",
+            "name": "铛铛",
             "sex": "0",
             "age": "22",
             "contact": "17329967263",
             "introduction": "我是一名正直守法的好公民。"
         },
         {
-            "name": "许琳丹",
+            "name": "耶耶",
             "sex": "1",
             "age": "22",
             "contact": "13679739727",

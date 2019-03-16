@@ -52,7 +52,8 @@ Vue.component('onToTopVue', onToTopVue)
 const onToTopVue = r => require.ensure([], () => r(require('./components/common/onToTop.vue')),'onToTop'); //返回顶部
 
 let router = new VueRouter({
-    routes: [{
+    routes: [
+        {
             path: '/',
             redirect: {
                 name: 'home'
