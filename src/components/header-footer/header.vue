@@ -144,8 +144,8 @@ nav .navbar-header {
 .icon-bar {
   background-color: #ffd04b;
 }
-.nav-color a{
+.nav-color a {
   color: #ffd04b;
-   text-decoration: none;
+  text-decoration: none;
 }
 </style>

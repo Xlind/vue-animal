@@ -12,16 +12,6 @@ export default {
 
     }
   },
-  created() {
-    // this.$ajax
-    //   .get("lunbo.json")
-    //   .then(res => {
-
-    //   })
-    //   .catch(err => {
-
-    //   });
-  },
   beforeMount() {
     if (this._isMobile()) {
       this.$router.replace({ name: "homeMob" });

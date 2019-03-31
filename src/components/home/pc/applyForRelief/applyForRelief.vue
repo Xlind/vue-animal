@@ -7,24 +7,27 @@
     <div class="nav-img"></div>
     <div class="container nav-content">
       <div class="item-nav">
-        <a href="#">申领处</a>
+        <a>申领处</a>
         <p>说明hhhhhhhh</p>
       </div>
       <div class="item-nav">
-        <a href="#">救助站</a>
+        <router-link :to="{name:'relief'}">救助站</router-link>
         <p>hhhhhhhh</p>
       </div>
       <div class="item-nav">
-        <a href="#">志愿者</a>
+        <a>志愿者</a>
         <p>hhhhhhhh</p>
       </div>
     </div>
+    <!-- 系统内容 -->
+    <div></div>
     <!-- 尾部 -->
     <footer-vue></footer-vue>
   </div>
 </template>
 
 <script>
+const reliefVue = r => require.ensure([], () => r(require('./relief.vue')), 'reliefVue');
 export default {
   data() {
     return {};

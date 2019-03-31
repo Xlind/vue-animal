@@ -33,16 +33,19 @@
               <label>
                 <input type="checkbox">
                 <span class="checkbox-icon"></span>
-                <span class="checkbox-lable">请记住我</span>
+                <span class="checkbox-lable">&nbsp;请记住我</span>
               </label>
             </div>
           </div>
         </div>
         <div class="form-group">
-          <div class="col-sm-offset-2 col-sm-9">
-            <button type="submit" class="btn btn-default denglu">登录</button>
-            
+          <div class="col-sm-offset-2 col-sm-9 btnDiv">
+            <button type="submit" class="btn btn-default login2">登录</button>
+            <button type="button" class="btn btn-default login2" @click="onBack()">返回</button>
           </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-9 error">{{msg}}</div>
         </div>
       </form>
     </div>
@@ -62,20 +65,29 @@ export default {
   },
   methods: {
     loginData(e) {
-      this.$ajax({
-        method: "post",
-        data: this.formObj,
-        url: "/login"
-      }).then(res => {
-        if (res.data.code == 200) {
-          this.msg = "登录成功, 3s后跳转至首页";
-          setTimeout(() => {
-            this.$router.push("/home");
-          }, 3000);
-        } else if (res.data.code == 400) {
-          this.msg = "登录失败";
-        }
-      });
+      if (this.formObj.email == "" || this.formObj.password == "") {
+        this.msg = "登录信息不全，无法登录";
+        console.log("eeeee");
+        return;
+      } else {
+        this.$ajax({
+          method: "post",
+          data: this.formObj,
+          url: "/login"
+        }).then(res => {
+          if (res.data.code == 200) {
+            this.msg = "登录成功, 3s后跳转至首页";
+            setTimeout(() => {
+              this.$router.push("/home");
+            }, 3000);
+          } else if (res.data.code == 400) {
+            this.msg = "密码不正确，登录失败";
+          }
+        });
+      }
+    },
+    onBack() {
+      this.$router.push("/");
     }
   }
 };
@@ -104,16 +116,20 @@ export default {
 input {
   border: solid 1px #3a3a3a;
 }
-.denglu {
+.login2 {
   border: solid 1px #3a3a3a;
-  padding: 5px 20px;
+  padding: 5px 40px;
 }
-.denglu:focus {
+.login2:focus {
   background-color: white;
 }
-.denglu:hover {
+.login2:hover {
   background-color: #3a3a3a;
   color: white;
+}
+.btnDiv {
+  display: flex;
+  justify-content: space-between;
 }
 .checkbox {
   display: flex;
@@ -147,5 +163,8 @@ input:checked + .checkbox-icon::before {
 .checkbox-label {
   font-size: 14px;
   padding-left: 8px;
+}
+.error {
+  color: red;
 }
 </style>

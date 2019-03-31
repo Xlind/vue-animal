@@ -1,3 +1,4 @@
+
 var mongoose = require('mongoose')
 var Schema = mongoose.Schema
 // 连接数据库
@@ -34,5 +35,6 @@ var rescueSchema = new Schema({
         required: true
     }
 })
-
 module.exports = mongoose.model('rescue', rescueSchema)
+
+

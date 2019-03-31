@@ -1,3 +1,4 @@
+
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
@@ -33,7 +34,7 @@ app.use('*', function (req, res, next) {
     res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
     next()
 });
-//公开资源
+//公开静态文件资源
 app.use('/api/', express.static('./api/'))
 app.use('/', express.static('./dist/'))
 

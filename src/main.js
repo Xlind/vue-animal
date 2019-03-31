@@ -26,11 +26,11 @@ Axios.defaults.baseURL = 'http://111.230.232.189:8004/api/'
 //引入自己的组件
 const App = r => require.ensure([], () => r(require('./app.vue')), 'app');
 const Home = r => require.ensure([], () => r(require('./components/home/home.vue')), 'Home'); //pc首页
-const HomeMob = r => require.ensure([], () => r(require('./components/home/homeMob.vue')), 'HomeMob'); //mobile首页
 const headerVue = r => require.ensure([], () => r(require('./components/header-footer/header.vue')), 'headerVue'); //pc端头部组件
 const footerVue = r => require.ensure([], () => r(require('./components/header-footer/footer.vue')), 'footerVue'); //pc端尾部组件
 const headerMVue = r => require.ensure([], () => r(require('./components/header-footer/headerM.vue')), 'headerMVue'); //mobile端头部组件
 const footerMVue = r => require.ensure([], () => r(require('./components/header-footer/footerM.vue')), 'footerMVue'); //mobile端尾部组件
+const HomeMob = r => require.ensure([], () => r(require('./components/home/homeMob.vue')), 'HomeMob'); //mobile首页
 
 //注册全局组件
 Vue.component('headerVue', headerVue)
@@ -46,17 +46,18 @@ const animalCommonSenseVue = r => require.ensure([], () => r(require('./componen
 const applyForReliefVue = r => require.ensure([], () => r(require('./components/home/pc/applyForRelief/applyForRelief.vue')), 'applyForRelief'); //申领救助
 const relateRecommendVue = r => require.ensure([], () => r(require('./components/home/pc/relateRecommend/relateRecommend.vue')), 'relateRecommend'); //相关推荐
 const welfareActivityVue = r => require.ensure([], () => r(require('./components/home/pc/welfareActivity/welfareActivity.vue')), 'welfareActivity'); //公益活动
+const reliefVue = r => require.ensure([], () => r(require('./components/home/pc/applyForRelief/relief.vue')), 'relief'); //救助站
 
 //注册通用组件
-Vue.component('onToTopVue', onToTopVue)
 const onToTopVue = r => require.ensure([], () => r(require('./components/common/onToTop.vue')),'onToTop'); //返回顶部
+Vue.component('onToTopVue', onToTopVue)
 
 let router = new VueRouter({
     routes: [
         {
             path: '/',
             redirect: {
-                name: 'home'
+            name: 'home'
             },
         },
         {
@@ -99,6 +100,11 @@ let router = new VueRouter({
             path: '/home/welfareActivity',
             component: welfareActivityVue
         },
+        // {
+        //     name: 'relief',
+        //     path: '/home/relief',
+        //     component: reliefVue
+        // },
         {
             name: 'login',
             path: '/login',
