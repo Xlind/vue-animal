@@ -19,7 +19,7 @@
       </ul>
       <div class="media">
         <div class="media-left">
-          <img src="../../../static/img/1.png" class="media-object" style="width:60px">
+          <img src="../../../../../static/img/1.png" class="media-object" style="width:60px">
         </div>
         <div class="media-body">
           <h4 class="media-heading">寻找主人</h4>
