@@ -19,14 +19,51 @@
       </ul>
       <div class="media">
         <div class="media-left">
-          <img src="../../../../../static/img/1.png" class="media-object" style="width:60px">
+          <img src="../../../../../static/img/2.png" class="media-object" style="width:150px">
         </div>
-        <div class="media-body">
-          <h4 class="media-heading">寻找主人</h4>
-          <p>本人于2019年3月29日13:50左右在开福区吉​‌‌祥巷生鲜农贸市场附近丢失一只棕色泰迪公犬，
+        <div class="media-body relBody">
+          <h4 class="media-heading">
+            寻找棕色泰迪
+            <span class="small-heading">寻找宠物</span>
+          </h4>
+          <span>遗失时间：2019-03-29</span>
+          <span class="small-adress">地点：开福区吉​‌‌祥巷生鲜农贸市场附近</span>
+          <span class="small-adress">联系邮箱：872937462@qq.com</span>
+          <p>
+            本人于2019年3月29日13:50左右在开福区吉​‌‌祥巷生鲜农贸市场附近丢失一只棕色泰迪公犬，
             全身棕色，躯干剃过毛，比头不毛发少，年龄1岁，体重约4.5公斤，左下犬齿有两颗，走丢时没有穿衣服，
             没有带项圈，如有知情者请联系我，提供可靠信息，若能找到，必将重谢。
-            </p>
+          </p>
+        </div>
+      </div>
+      <div class="media">
+        <div class="media-left">
+          <img src="../../../../../static/img/1.png" class="media-object" style="width:150px">
+        </div>
+        <div class="media-body relBody">
+          <h4 class="media-heading">
+            捡到一条大金毛，狗狗的样子来跟我确认
+            <span class="small-heading">寻找主人</span>
+          </h4>
+          <span>遗失时间：2019-03-05</span>
+          <span class="small-adress">地点：开福万达广场</span>
+           <span class="small-adress">联系邮箱：63782753@qq.com</span>
+          <p>捡到一条大金毛，狗狗的样子来跟我确定，怕骗​‌‌子。</p>
+        </div>
+      </div>
+      <div class="media">
+        <div class="media-left">
+          <img src="../../../../../static/img/2.png" class="media-object" style="width:150px">
+        </div>
+        <div class="media-body relBody">
+          <h4 class="media-heading">
+            寻找爱犬
+            <span class="small-heading">寻找宠物</span>
+          </h4>
+          <span>遗失时间：2019-01-15</span>
+          <span class="small-adress">地点：长沙市金麓小区</span>
+           <span class="small-adress">联系邮箱：783928763@qq.com</span>
+          <p>本人有只雪纳瑞11个月的公狗叫贝利，特别黏人，穿着​‌‌横条纹的衣服和牛仔短裤，昨天在金麓小区不慎走失，麻烦大家帮帮忙，万分感谢。</p>
         </div>
       </div>
       <!-- 模态框（Modal） -->
@@ -45,7 +82,7 @@
               <h4 class="modal-title" id="myModalLabel">救助帖</h4>
             </div>
             <div class="modal-body">
-              <div class="container">
+              <div class="content">
                 <div class="theme">
                   <label>
                     <input type="checkbox">
@@ -58,8 +95,46 @@
                     <span class="checkbox-lable">寻找宠物</span>
                   </label>
                 </div>
-                <div>标题</div>
-                <div>内容</div>
+                <form class="form-horizontal formStyle" role="form">
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label">标题</label>
+                    <div class="col-sm-10">
+                       <input
+                        type="text"
+                        class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label">遗失时间</label>
+                    <div class="col-sm-10">
+                      <input
+                        type="text"
+                        class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label">地点</label>
+                    <div class="col-sm-10">
+                      <input
+                        type="text"
+                        class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label">联系邮箱</label>
+                    <div class="col-sm-10">
+                      <input
+                        type="text"
+                        class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label">详细内容</label>
+                    <div class="col-sm-10">
+                      <textarea class="form-control" rows="3"></textarea>
+                    </div>
+                  </div>
+                </form>
               </div>
             </div>
             <div class="modal-footer">
@@ -67,7 +142,6 @@
               <button type="button" class="btn btn-primary">发布帖子</button>
             </div>
           </div>
-          <!-- /.modal-content -->
         </div>
       </div>
     </div>
@@ -154,26 +228,32 @@ export default {
 .messDesc img {
   max-width: 100%;
 }
-.checkbox {
-  display: flex;
-  width: 100px;
+.content {
+  padding: 20px;
 }
-.checkbox label {
+.theme {
+  display: flex;
+  width: 200px;
+  justify-content: space-between;
+  padding-bottom: 10px;
+}
+.theme label {
   padding-left: 0;
   align-items: center;
   display: flex;
 }
-.checkbox input {
+.theme input {
   display: none;
 }
-.checkbox .checkbox-icon {
+.theme .checkbox-icon {
   display: inline-block;
   width: 18px;
   height: 18px;
   border: 1px solid #999;
   color: #1f1f1f;
+  margin-right: 5px;
 }
-.checkbox .checkbox-icon::before {
+.theme .checkbox-icon::before {
   display: block;
   content: "";
   text-align: center;
@@ -185,6 +265,23 @@ input:checked + .checkbox-icon::before {
 }
 .checkbox-label {
   font-size: 14px;
-  padding-left: 8px;
+  padding-left: 15px;
+}
+.relBody {
+  padding: 20px 10px 0 10px;
+}
+.relBody .media-heading {
+  font-size: 22px;
+}
+.relBody .media-heading .small-heading {
+  font-size: 15px;
+  padding-left: 10px;
+  color: #4b9e98;
+}
+.small-adress {
+  margin-left: 40px;
+}
+.formStyle input{
+ outline: none;
 }
 </style>

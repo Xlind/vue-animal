@@ -22,12 +22,13 @@
             <div class="panel-heading">
               <h4 class="panel-title">
                 <strong>
-                <a
-                  data-toggle="collapse"
-                  data-parent="#accordion"
-                  v-bind:href="'#collapse' + index"
-                >{{ n.title }}</a>
-                {{ n.time }}</strong>
+                  <a
+                    data-toggle="collapse"
+                    data-parent="#accordion"
+                    v-bind:href="'#collapse' + index"
+                  >{{ n.title }}</a>
+                  {{ n.time }}
+                </strong>
               </h4>
             </div>
             <div v-bind:id="'collapse' + index" class="panel-collapse collapse">
@@ -35,6 +36,14 @@
             </div>
           </div>
         </div>
+        <ul class="pager">
+          <li class="previous disabled">
+            <a href="#">&larr; 上一页</a>
+          </li>
+          <li class="next">
+            <a href="#">下一页 &rarr;</a>
+          </li>
+        </ul>
       </div>
     </div>
     <!-- 尾部 -->

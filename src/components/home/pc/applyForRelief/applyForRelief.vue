@@ -41,7 +41,6 @@
     </div>
     <!-- 系统内容 -->
     <div class="system">
-      <!-- <hr style="border:1 dashed #987cb9" width="80%" color=#987cb9 size=1> -->
       <applyVue v-if="this.currentTab == 'apply'"></applyVue>
       <reliefVue v-if="this.currentTab == 'relief'"></reliefVue>
       <volunteerVue v-if="this.currentTab == 'volunteers'"></volunteerVue>
@@ -137,6 +136,6 @@ export default {
   color: #fff;
 }
 .system {
-  padding: 250px;
+  padding: 250px 250px 60px 250px;
 }
 </style>

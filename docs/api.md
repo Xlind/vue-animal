@@ -114,6 +114,8 @@
 + content: xxxxx
 + email: 936947038@qq.com
 + publishTime: 1544258923(时间戳，单位秒)
+lossTime:'2019-03-08'
+address:'开福万达广场'
 + solveTime: [0(该帖子未解决)、1544258923(时间戳，单位秒)...]
 + type: [0(寻找主人帖)、1(寻找宠物帖)]
 示例：
