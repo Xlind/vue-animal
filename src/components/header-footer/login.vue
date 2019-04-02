@@ -76,10 +76,10 @@ export default {
           url: "/login"
         }).then(res => {
           if (res.data.code == 200) {
-            this.msg = "登录成功, 3s后跳转至首页";
+            this.msg = "登录成功, 1s后跳转至首页";
             setTimeout(() => {
               this.$router.push("/home");
-            }, 3000);
+            }, 1000);
           } else if (res.data.code == 400) {
             this.msg = "密码不正确，登录失败";
           }
