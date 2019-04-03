@@ -1,7 +1,7 @@
 <!-- 返回顶部 -->
 <template>
   <div class="goTop" id="js-go_top">
-    <img src="../../static/img/icon_top.png" alt="回到顶部图片">
+    <a href="#"><img src="../../static/img/icon_top.png" alt="回到顶部图片"></a>
   </div>
 </template>
 

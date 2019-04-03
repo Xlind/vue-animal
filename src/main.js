@@ -46,10 +46,9 @@ const animalCommonSenseVue = r => require.ensure([], () => r(require('./componen
 const applyForReliefVue = r => require.ensure([], () => r(require('./components/home/pc/applyForRelief/applyForRelief.vue')), 'applyForRelief'); //申领救助
 const relateRecommendVue = r => require.ensure([], () => r(require('./components/home/pc/relateRecommend/relateRecommend.vue')), 'relateRecommend'); //相关推荐
 const welfareActivityVue = r => require.ensure([], () => r(require('./components/home/pc/welfareActivity/welfareActivity.vue')), 'welfareActivity'); //公益活动
-// const reliefVue = r => require.ensure([], () => r(require('./components/home/pc/applyForRelief/relief.vue')), 'relief'); //救助站
 
 //注册通用组件
-const onToTopVue = r => require.ensure([], () => r(require('./components/common/onToTop.vue')),'onToTop'); //返回顶部
+import onToTopVue from "./components/common/onToTop.vue"; //返回顶部
 Vue.component('onToTopVue', onToTopVue)
 
 let router = new VueRouter({
@@ -100,11 +99,6 @@ let router = new VueRouter({
             path: '/home/welfareActivity',
             component: welfareActivityVue
         },
-        // {
-        //     name: 'relief',
-        //     path: '/home/relief',
-        //     component: reliefVue
-        // },
         {
             name: 'login',
             path: '/login',

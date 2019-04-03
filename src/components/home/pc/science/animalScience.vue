@@ -9,9 +9,8 @@
           <div id="menu">
             <ul class="nav">
               <li v-for="category in categories" :key="category.id" class="active">
-                <a href="javascript:;" @click="tab(category.id)">
-                  {{category.title}}</a>
-                  <!-- <span>{{category.enTitle}}</span> -->
+                <a href="javascript:;" @click="tab(category.id)">{{category.title}}</a>
+                <!-- <span>{{category.enTitle}}</span> -->
               </li>
             </ul>
           </div>
@@ -38,6 +37,14 @@
                 </div>
               </li>
             </ul>
+            <ul class="pager">
+              <li class="previous disabled">
+                <a href="#">&larr; 上一页</a>
+              </li>
+              <li class="next">
+                <a href="#">下一页 &rarr;</a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -47,12 +54,7 @@
 </template>
 
 <script>
-const animalSciencebgVue = r =>
-  require.ensure(
-    [],
-    () => r(require('./animalSciencebg.vue')),
-    'animalSciencebgVue'
-  ); //栏目
+import animalSciencebgVue from "./animalSciencebg.vue";
 
 export default {
   data() {
@@ -73,9 +75,9 @@ export default {
             for (var j = 0; j < category.list.length; j++) {
               this.imgs.unshift(category.list[j]);
             }
-            this.imgs.sort((a,b)=>{
-              return a-b;
-            })
+            this.imgs.sort((a, b) => {
+              return a - b;
+            });
           }
         }
       })
@@ -180,7 +182,7 @@ div {
   font-weight: 800;
   line-height: 22px;
 }
-.science-list li .text-wrap h3 span{
+.science-list li .text-wrap h3 span {
   font-size: 18px;
   font-weight: 800;
 }
