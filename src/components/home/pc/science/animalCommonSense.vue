@@ -3,14 +3,14 @@
   <div>
     <!-- 头部 -->
     <header-vue></header-vue>
-    <!-- 动物新闻 -->
+    <!-- 动物常识 -->
     <div class="sense-img"></div>
-    <!-- 新闻 -->
+    <!-- 常识 -->
     <div class="innerPageCon_1">
       <div class="panel-group" id="accordion">
         <div class="grayTitle">
           <strong>
-            动物新闻
+            动物常识
             <span class="lineL"></span>
             <span class="lineR"></span>
           </strong>
