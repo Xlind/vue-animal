@@ -148,6 +148,8 @@ address:'开福万达广场'
 + content: xxxxx
 + email: 936947038@qq.com
 + type: [0(寻找主人帖)、1(寻找宠物帖)]
++ address: 地点
++ lostTime: 时间。字符串类型
 3. 返回json数据格式：
 + code: [200(发布成功)、400(发布失败)]。
 + reason(仅当code为400时才有此字段): [1041(无此邮箱用户)、1042(保存失败)]。

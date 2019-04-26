@@ -33,6 +33,20 @@ var rescueSchema = new Schema({
         enum: [0, 1],
         default: 0,
         required: true
+    }, 
+    type: {
+        type: Number,
+        enum: [0, 1],
+        default: 0,
+        required: true
+    },
+    address: {
+        type: String,
+        required: true
+    },
+    lostTime: {
+        type: String,
+        required: true
     }
 })
 module.exports = mongoose.model('rescue', rescueSchema)
