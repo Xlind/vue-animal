@@ -16,15 +16,17 @@
             <span data-toggle="modal" data-target="#volunteer">志愿者申请表</span>
             <p class="volunteerStyle">志愿者——是社会的财富，更是TA的希望！</p>
             <p>
-              我们需要组织工作者——组织活动，对外联络等；<br>
-              我们需要宣传工作者——编辑、摄影等；<br>
-              我们需要医疗工作者——防疫、救助等；<br>
+              我们需要组织工作者——组织活动，对外联络等；
+              <br>我们需要宣传工作者——编辑、摄影等；
+              <br>我们需要医疗工作者——防疫、救助等；
+              <br>
             </p>
             <p>志愿者是最值得敬佩也是最宝贵的社会财富，动保事业需要更多“志愿者”的加入。</p>
             <p>
-              只要你想为动保事业尽一份力！<br>
-              愿意一起为动保事业、为TA们奉献自己的爱！<br>
-              我们就欢迎你的加入!<br>
+              只要你想为动保事业尽一份力！
+              <br>愿意一起为动保事业、为TA们奉献自己的爱！
+              <br>我们就欢迎你的加入!
+              <br>
             </p>
           </div>
         </li>
@@ -50,12 +52,12 @@
                 <form class="form-horizontal formStyle" role="form">
                   <div class="form-group">
                     <label>姓名</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" v-model="name">
                   </div>
                   <div class="form-group">
                     <div class="theme">
                       <label>
-                        <input type="checkbox">
+                        <input type="checkbox" v-model="tmpMan">
                         <span class="checkbox-icon"></span>
                         <span class="checkbox-lable">男</span>
                       </label>
@@ -76,7 +78,7 @@
                   </div>
                   <div class="form-group">
                     <label>手机</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" v-model="contact">
                   </div>
                   <div class="form-group">
                     <label>邮箱</label>
@@ -85,9 +87,11 @@
                   <div class="form-group">
                     <label class="volTitle">志愿者参与行动信息</label>
                   </div>
-                   <div class="form-group">
+                  <div class="form-group">
                     <label>动保宣传员</label>
-                    <label class="volContext">传播是高效宣传科学、文明养宠，动物福利理念的重要工作，无论你在哪里，请积极为TA发声，让更多人看到TA们的处境！</label>
+                    <label
+                      class="volContext"
+                    >传播是高效宣传科学、文明养宠，动物福利理念的重要工作，无论你在哪里，请积极为TA发声，让更多人看到TA们的处境！</label>
                     <div class="theme2">
                       <label>
                         <input type="checkbox">
@@ -101,9 +105,11 @@
                       </label>
                     </div>
                   </div>
-                   <div class="form-group">
+                  <div class="form-group">
                     <label>活动志愿行</label>
-                    <label class="volContext">我们会不定期在全国各地举办落地活动，每一场活动都需要志愿者的支持与参与。假如有一天，我们来到你的身边，请你一定加入进来！</label>
+                    <label
+                      class="volContext"
+                    >我们会不定期在全国各地举办落地活动，每一场活动都需要志愿者的支持与参与。假如有一天，我们来到你的身边，请你一定加入进来！</label>
                     <div class="theme2">
                       <label>
                         <input type="checkbox">
@@ -119,14 +125,19 @@
                   </div>
                   <div class="form-group">
                     <label>个人简介</label>
-                    <textarea class="form-control" rows="5" placeholder="根据自身的兴趣爱好等简要介绍，不超过200字..."></textarea>
+                    <textarea
+                      class="form-control"
+                      rows="5"
+                      placeholder="根据自身的兴趣爱好等简要介绍，不超过200字..."
+                      v-model="introduction"
+                    ></textarea>
                   </div>
                 </form>
               </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-              <button type="button" class="btn btn-primary">提交</button>
+              <button type="button" class="btn btn-primary" @click="applyForVolunteers()">提交</button>
             </div>
           </div>
         </div>
@@ -138,7 +149,41 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      name: "",
+      sex: 0,
+      age: 0,
+      contact: "",
+      introduction: "",
+      tmpMan: false
+    };
+  },
+  methods: {
+    applyForVolunteers() {
+      if (this.tmpMan == true) {
+        this.sex = 0;
+      } else {
+        this.sex = 1;
+      }
+      // 申请志愿者。
+      this.$ajax({
+        method: "post",
+        data: {
+          name: this.name,
+          sex: this.sex,
+          age: this.age,
+          contact: this.contact,
+          introduction: this.introduction
+        },
+        url: "/applyForVolunteers"
+      }).then(res => {
+        if (res.data.code == 200) {
+          alert("申请成功");
+        } else {
+          alert("申请失败。原因： " + res.data.reason);
+        }
+      });
+    }
   }
 };
 </script>

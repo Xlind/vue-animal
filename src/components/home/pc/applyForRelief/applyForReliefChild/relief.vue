@@ -35,7 +35,7 @@
         <div class="media-body relBody">
           <h4 class="media-heading">
             {{item.title}}
-            <span class="small-heading">{{item.type == 1?'寻找主人':'寻找宠物'}}</span>
+            <span class="small-heading">{{item.type == 0?'寻找主人':'寻找宠物'}}</span>
           </h4>
           <span>遗失时间：{{item.lostTime}}</span>
           <span class="small-adress">地点：{{item.address}}</span>
@@ -132,7 +132,7 @@ export default {
         email: "",
         type: 0,
         address: "",
-        lostTime: "",
+        lostTime: ""
       },
       applyVolunteerObj: {},
       reliefData: [
@@ -214,9 +214,9 @@ export default {
       // 发送帖子。
       this.$ajax({
         method: "post",
-        data: { 
+        data: {
           title: this.sendPostObj.title,
-          content: this.sendPostObj.content, 
+          content: this.sendPostObj.content,
           email: this.sendPostObj.email,
           type: this.sendPostObj.type,
           address: this.sendPostObj.address,
@@ -225,9 +225,9 @@ export default {
         url: "/sendPosts"
       }).then(res => {
         if (res.data.code == 200) {
-          alert("发帖成功")
+          alert("发帖成功");
         } else {
-          alert("发帖失败。原因： " + res.data.reason)
+          alert("发帖失败。原因： " + res.data.reason);
         }
       });
     }
