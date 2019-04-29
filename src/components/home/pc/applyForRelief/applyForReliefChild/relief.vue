@@ -138,7 +138,7 @@ export default {
       reliefData: [
         {
           title: "急寻找猫猫 ",
-          type: 2,
+          type: 1,
           lossTime: "2019-03-30",
           address: "东门北路2081号11栋一楼",
           email: "872937462@qq.com",
@@ -147,7 +147,7 @@ export default {
         },
         {
           title: "寻找棕色泰迪",
-          type: 2,
+          type: 1,
           lossTime: "2019-03-29",
           address: "开福区吉​‌‌祥巷生鲜农贸市场附近",
           email: "872937462@qq.com",
@@ -156,7 +156,7 @@ export default {
         },
         {
           title: "寻狗狗主人",
-          type: 1,
+          type: 0,
           lossTime: "2019-03-27",
           address: "城区园林吉祥花园百货商店",
           email: "824537462@qq.com",
@@ -165,7 +165,7 @@ export default {
         },
         {
           title: "寻找小鹿犬 ",
-          type: 2,
+          type: 1,
           lossTime: "2019-03-11",
           address: "汕尾城区赤岭东侧交警大队隔壁车场",
           email: "736237462@qq.com",
@@ -174,7 +174,7 @@ export default {
         },
         {
           title: "捡到一条大金毛，狗狗的样子来跟我确认",
-          type: 1,
+          type: 0,
           lossTime: "2019-03-05",
           address: "开福万达广场",
           email: "63782753@qq.com",
@@ -182,7 +182,7 @@ export default {
         },
         {
           title: "寻找爱犬",
-          type: 2,
+          type: 1,
           lossTime: "2019-01-15",
           address: "长沙市金麓小区",
           email: "783928763@qq.com",
@@ -193,6 +193,10 @@ export default {
     };
   },
   created() {
+ this.initDate();
+  },
+  methods: {
+    initDate() {
     // 获取帖子。
     this.$ajax({
       method: "post",
@@ -203,8 +207,7 @@ export default {
         this.reliefData = res.data.posts;
       }
     });
-  },
-  methods: {
+    },
     sendPost() {
       if (this.tmp.tmpCheckBox0 == true) {
         this.sendPostObj.type = 0;
@@ -225,7 +228,8 @@ export default {
         url: "/sendPosts"
       }).then(res => {
         if (res.data.code == 200) {
-          this.$router.replace({ name:'applyForRelief' });
+         $('#myModal').modal('hide');
+        this.initDate();
           // return;
         } else {
           alert("发帖失败。原因： " + res.data.reason);
