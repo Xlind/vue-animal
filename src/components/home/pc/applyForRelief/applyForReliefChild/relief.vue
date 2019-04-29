@@ -20,13 +20,13 @@
       <div class="media" v-for="(item, index) in reliefData" :key="index">
         <div class="media-left">
           <img
-            v-if="item.type == 1"
+            v-if="item.type == 0"
             src="../../../../../static/img/1.png"
             class="media-object"
             style="width:150px"
           >
           <img
-            v-if="item.type == 2"
+            v-if="item.type == 1"
             src="../../../../../static/img/2.png"
             class="media-object"
             style="width:150px"
@@ -225,7 +225,8 @@ export default {
         url: "/sendPosts"
       }).then(res => {
         if (res.data.code == 200) {
-          alert("发帖成功");
+          this.$router.replace({ name:'applyForRelief' });
+          // return;
         } else {
           alert("发帖失败。原因： " + res.data.reason);
         }
