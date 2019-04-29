@@ -182,7 +182,7 @@ app.post('/api/gainPosts', (req, res) => {
     console.log('gainPosts params: ' + JSON.stringify(req.body))
     // 返回全部。
     if (body.email === "all") {
-        Rescue.find({}).sort({ publishTime: -1 }, (err, posts) => {
+        Rescue.find({}).sort({ publishTime: -1 }).exec((err, posts) => {
             if (err) {
                 jsonErr(res, err)
                 return
@@ -199,7 +199,7 @@ app.post('/api/gainPosts', (req, res) => {
     } else {
         Rescue.find({
             email: body.email,
-        }, (err, posts) => {
+        }).sort({ publishTime: -1 }).exec((err, posts) => {
             if (err) {
                 jsonErr(res, err)
                 return
