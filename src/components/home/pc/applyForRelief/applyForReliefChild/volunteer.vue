@@ -147,6 +147,7 @@
 </template>
 
 <script>
+import "./spop.js";
 export default {
   data() {
     return {
@@ -178,9 +179,20 @@ export default {
         url: "/applyForVolunteers"
       }).then(res => {
         if (res.data.code == 200) {
-          alert("申请成功");
+          $("#volunteer").modal("hide");
+           spop({
+            template: "申请表提交成功，等待管理员审核...",
+            style: 'success',
+            position  : 'bottom-right',
+            autoclose: 8000
+          });
         } else {
-          alert("申请失败。原因： " + res.data.reason);
+           spop({
+            template: "申请失败。可能是信息不全",
+            style: 'error',
+            position  : 'bottom-right',
+            autoclose: 8000
+          });
         }
       });
     }

@@ -6,6 +6,7 @@ Vue.use(VueRouter)
 // 引入css
 import './static/scss/common.scss'
 import './static/scss/iconfont.scss'
+import './static/scss/spop.scss'
 
 
 //axios引入
