@@ -182,7 +182,7 @@ app.post('/api/gainPosts', (req, res) => {
     console.log('gainPosts params: ' + JSON.stringify(req.body))
     // 返回全部。
     if (body.email === "all") {
-        Rescue.find({}, (err, posts) => {
+        Rescue.find({}).sort({ publishTime: -1 }, (err, posts) => {
             if (err) {
                 jsonErr(res, err)
                 return
