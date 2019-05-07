@@ -18,14 +18,14 @@
         <div class="form-group">
           <label for="password" class="col-sm-3 control-label">密码</label>
           <div class="col-sm-9">
-            <input type="text" class="form-control" placeholder="请输入密码" v-model="regist.password">
+            <input type="password" class="form-control" placeholder="请输入密码" v-model="regist.password">
           </div>
         </div>
         <div class="form-group">
           <label for="password" class="col-sm-3 control-label">确认密码</label>
           <div class="col-sm-9">
             <input
-              type="text"
+              type="password"
               class="form-control"
               placeholder="请再次输入密码"
               v-model="regist.password2"
