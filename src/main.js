@@ -47,8 +47,8 @@ const animalCommonSenseVue = r => require.ensure([], () => r(require('./componen
 const applyForReliefVue = r => require.ensure([], () => r(require('./components/home/pc/applyForRelief/applyForRelief.vue')), 'applyForRelief'); //申领救助
 const relateRecommendVue = r => require.ensure([], () => r(require('./components/home/pc/relateRecommend/relateRecommend.vue')), 'relateRecommend'); //相关推荐
 const welfareActivityVue = r => require.ensure([], () => r(require('./components/home/pc/welfareActivity/welfareActivity.vue')), 'welfareActivity'); //公益活动
-const adminLoginVue = r => require.ensure([], () => r(require('./components/home/adminLogin.vue')), 'adminLogin'); //后台登录
-const admin = r => require.ensure([], () => r(require('./components/home/admin.vue')), 'admin'); //后台
+const adminLoginVue = r => require.ensure([], () => r(require('./components/admin/adminLogin.vue')), 'adminLogin'); //后台登录
+const admin = r => require.ensure([], () => r(require('./components/admin/admin.vue')), 'admin'); //后台
 
 //注册通用组件
 import onToTopVue from "./components/common/onToTop.vue"; //返回顶部

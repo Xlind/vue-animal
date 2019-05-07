@@ -60,7 +60,7 @@ export default {
 .login {
   width: 100%;
   height: 780px;
-  background-image: url("/src/static/img/admin.jpg");
+  background-image: url("../../static/img/admin.jpg");
   background-size: cover;
 }
 .innerPageCon_1 {
